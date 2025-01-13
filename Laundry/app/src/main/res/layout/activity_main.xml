@@ -6,7 +6,15 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="#F1F2F4">
+
+    <ImageView
+        android:id="@+id/topBg"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:src="@drawable/top_bg"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/selamat"
@@ -16,7 +24,8 @@
         android:fontFamily="@font/poppins_bold"
         android:layout_marginTop="30dp"
         android:layout_marginStart="15dp"
-        android:text="Selamat Pagi, Poppy"
+        android:text="Selamat Pagi, Poppy!"
+        android:textColor="#fff"
         app:layout_constraintBottom_toTopOf="@+id/tanggal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -27,6 +36,7 @@
         android:id="@+id/tanggal"
         android:text="ini tanggal"
         android:layout_marginTop="10dp"
+        android:textColor="@color/white"
         android:layout_marginEnd="15dp"
         android:fontFamily="@font/poppins"
         app:layout_constraintEnd_toEndOf="parent"
@@ -148,6 +158,7 @@
         android:text="Siap melayani pelanggan dengan setulus hati"
         android:fontFamily="@font/poppins_bold"
         app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         android:textSize="18sp"
         android:textAlignment="center"
@@ -162,6 +173,7 @@
         android:id="@+id/subjudulsiap"
         android:text="Jangan Kecewakan Pelanggan"
         android:fontFamily="@font/poppins"
+        android:textColor="@color/black"
         android:textSize="15sp"
         android:layout_marginStart="15dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -200,7 +212,6 @@
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
                     android:text="Akun"
-                    android:textColor="#333"
                     android:textSize="10sp" />
             </LinearLayout>
         </FrameLayout>
@@ -239,7 +250,6 @@
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
                     android:text="Layanan"
-                    android:textColor="#333"
                     android:textSize="10sp" />
             </LinearLayout>
         </FrameLayout>
@@ -278,7 +288,6 @@
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
                     android:text="Tambahan"
-                    android:textColor="#333"
                     android:textSize="10sp" />
             </LinearLayout>
         </FrameLayout>
@@ -317,7 +326,6 @@
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
                     android:text="Pegawai"
-                    android:textColor="#333"
                     android:textSize="10sp" />
             </LinearLayout>
         </FrameLayout>
@@ -356,7 +364,6 @@
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
                     android:text="Cabang"
-                    android:textColor="#333"
                     android:textSize="10sp" />
             </LinearLayout>
         </FrameLayout>
@@ -395,7 +402,6 @@
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
                     android:text="Printer"
-                    android:textColor="#333"
                     android:textSize="10sp" />
             </LinearLayout>
         </FrameLayout>

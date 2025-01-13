@@ -6,7 +6,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="#F1F2F4">
 
     <TextView
         android:id="@+id/selamat"
@@ -16,7 +17,8 @@
         android:fontFamily="@font/poppins_bold"
         android:layout_marginTop="40dp"
         android:layout_marginStart="15dp"
-        android:text="Selamat Pagi, Poppy"
+        android:textColor="@color/black"
+        android:text="Selamat Pagi, Poppy!"
         app:layout_constraintBottom_toTopOf="@+id/tanggal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -27,6 +29,7 @@
         android:id="@+id/tanggal"
         android:text="ini tanggal"
         android:layout_marginEnd="15dp"
+        android:textColor="@color/black"
         android:fontFamily="@font/poppins"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/cardview1"
@@ -178,7 +181,6 @@
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
                     android:text="Transaksi"
-                    android:textColor="#333"
                     android:textSize="10sp" />
             </LinearLayout>
         </FrameLayout>
@@ -217,7 +219,6 @@
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
                     android:text="Layanan"
-                    android:textColor="#333"
                     android:textSize="10sp" />
             </LinearLayout>
         </FrameLayout>
@@ -257,7 +258,6 @@
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
                     android:text="Tambahan"
-                    android:textColor="#333"
                     android:textSize="10sp" />
             </LinearLayout>
         </FrameLayout>
@@ -296,7 +296,6 @@
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
                     android:text="Pelanggan"
-                    android:textColor="#333"
                     android:textSize="10sp" />
             </LinearLayout>
         </FrameLayout>
@@ -335,7 +334,6 @@
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
                     android:text="Laporan"
-                    android:textColor="#333"
                     android:textSize="10sp" />
             </LinearLayout>
         </FrameLayout>
@@ -374,7 +372,6 @@
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
                     android:text="Printer"
-                    android:textColor="#333"
                     android:textSize="10sp" />
             </LinearLayout>
         </FrameLayout>

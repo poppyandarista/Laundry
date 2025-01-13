@@ -29,13 +29,13 @@ class MainActivity : AppCompatActivity() {
         val hour = calendar.get(Calendar.HOUR_OF_DAY)
 
         val greeting = when (hour) {
-            in 5..11 -> "Selamat Pagi!"
-            in 12..15 -> "Selamat Siang!"
-            in 16..18 -> "Selamat Sore!"
-            else -> "Selamat Malam!"
+            in 5..11 -> "Selamat Pagi,"
+            in 12..15 -> "Selamat Siang,"
+            in 16..18 -> "Selamat Sore,"
+            else -> "Selamat Malam,"
         }
 
-        textSelamat.text = "$greeting Poppy"
+        textSelamat.text = "$greeting Poppy!"
 
 ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
