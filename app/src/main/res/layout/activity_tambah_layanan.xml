@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".layanan.TambahLayanan">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvTambahLayanan"
+        android:text="Tambah Layanan"
+        android:fontFamily="@font/poppins_bold"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvNamaLayanan"
+        android:text="Nama Layanan"
+        android:fontFamily="@font/poppins"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTambahLayanan"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Contoh: Cuci, Setrika, Cuci Setrika dll"
+        android:fontFamily="@font/poppins"
+        android:id="@+id/etNamaLayanan"
+        android:paddingStart="10dp"
+        android:background="@drawable/border_editor"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/tvNamaLayanan"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvCabangLayanan"
+        android:text="Cabang"
+        android:fontFamily="@font/poppins"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etNamaLayanan"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Cabang"
+        android:fontFamily="@font/poppins"
+        android:id="@+id/etCabangLayanan"
+        android:paddingStart="10dp"
+        android:background="@drawable/border_editor"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/tvCabangLayanan"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvKeterangan"
+            android:text="Keterangan"
+        android:fontFamily="@font/poppins"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etCabangLayanan"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Keterangan Layanan"
+        android:fontFamily="@font/poppins"
+        android:id="@+id/etKeterangan"
+        android:paddingStart="10dp"
+        android:background="@drawable/border_editor"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/tvKeterangan"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvHargaLayanan"
+        android:text="Harga Layanan"
+        android:fontFamily="@font/poppins_bold"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etKeterangan"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kiloan"
+        android:textSize="18sp"
+        android:fontFamily="@font/poppins"
+        android:id="@+id/tvKiloan"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvHargaLayanan"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:hint="Harga per Kilo"
+        android:fontFamily="@font/poppins"
+        android:id="@+id/etDeskripsiLayanan"
+        android:paddingStart="10dp"
+        android:background="@drawable/border_editor"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvHargaLayanan"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Satuan"
+        android:textSize="18sp"
+        android:fontFamily="@font/poppins"
+        android:id="@+id/tvSatuan"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvKiloan"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:hint="Harga per Satuan"
+        android:fontFamily="@font/poppins"
+        android:id="@+id/etHargaSatuan"
+        android:paddingStart="10dp"
+        android:background="@drawable/border_editor"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etDeskripsiLayanan"/>
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:text="SIMPAN"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#16528E"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etHargaSatuan"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

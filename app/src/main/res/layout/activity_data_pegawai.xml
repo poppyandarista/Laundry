@@ -5,13 +5,13 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pelanggan.DataPelanggan">
+    tools:context=".pegawai.DataPegawai">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/rvDATA_PELANGGAN"
-        tools:listitem="@layout/card_data_pelanggan"
+        android:id="@+id/rvDATA_PEGAWAI"
+        tools:listitem="@layout/card_data_pegawai"
         />
 
     <RelativeLayout
@@ -21,12 +21,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/baseline_add_24"
-            android:id="@+id/fabTambahPelanggan"
+            android:id="@+id/fabTambahPegawai"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:contentDescription="Tambah Pelanggan"
+            android:contentDescription="Tambah Pegawai"
             />
     </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

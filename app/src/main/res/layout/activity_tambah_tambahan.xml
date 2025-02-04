@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".tambahan.TambahTambahan">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvTambahTambahan"
+        android:text="Tambah Tambahan"
+        android:fontFamily="@font/poppins_bold"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvNamaPelanggan"
+        android:text="Nama Pelanggan"
+        android:fontFamily="@font/poppins"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTambahTambahan"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Nama Pelanggan"
+        android:fontFamily="@font/poppins"
+        android:paddingStart="10dp"
+        android:id="@+id/etNamaPelanggan"
+        android:background="@drawable/border_editor"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/tvNamaPelanggan"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvDeksripsiTambahan"
+        android:text="Deskripsi Tambahan"
+        android:fontFamily="@font/poppins"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etNamaPelanggan"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Deksripsi Tambahan"
+        android:fontFamily="@font/poppins"
+        android:id="@+id/etDeskripsiTambahan"
+        android:paddingStart="10dp"
+        android:background="@drawable/border_editor"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/tvDeksripsiTambahan"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvHargaTambahan"
+        android:text="Harga Tambahan"
+        android:fontFamily="@font/poppins"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etDeskripsiTambahan"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Harga Tambahan"
+        android:fontFamily="@font/poppins"
+        android:id="@+id/etHargaTambahan"
+        android:paddingStart="10dp"
+        android:background="@drawable/border_editor"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/tvHargaTambahan"/>
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:text="SIMPAN"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#16528E"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etHargaTambahan"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
