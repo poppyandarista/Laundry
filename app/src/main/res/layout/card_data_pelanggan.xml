@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content"
+    android:padding="8dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvCARD_PELANGGAN"
         android:layout_width="match_parent"
-        android:layout_height="185dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         app:cardCornerRadius="15dp"
@@ -20,73 +21,94 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvIdPelanggan"
-            android:text="ID Pelanggan"
-            android:textSize="16sp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="5dp"
-            android:fontFamily="@font/poppins_bold"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvNamaPelanggan"
-            android:text="Nama Pengguna"
-            android:textSize="16sp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="5dp"
-            android:fontFamily="@font/poppins"
-            />
 
             <TextView
+                android:id="@+id/tvIdPelanggan"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:text="@string/card_pelanggan_id"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="16sp"
+                android:background="#7181C5"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:padding="8dp" />
+
+    <TextView
+                android:id="@+id/tvNamaPelanggan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/Alamat"
-                android:text="Alamat"
+                android:text="@string/card_pelanggan_nama_pelanggan"
+                android:textColor="@color/blackwhite"
                 android:textSize="16sp"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="5dp"
-                android:fontFamily="@font/poppins"/>
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/poppins" />
 
             <TextView
+                android:id="@+id/tvNoHpPelanggan"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_height="wrap_content"
+                android:text="@string/card_pelanggan_nohp"
+                android:textColor="@color/blackwhite"
+                android:textSize="16sp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/poppins" />
+
+            <TextView
+                android:id="@+id/tvTerdaftar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/Nohp"
-                android:text="No.HP"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/blackwhite"
+                android:text="@string/card_pelanggan_terdaftar"
                 android:textSize="16sp"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="5dp"
-                android:fontFamily="@font/poppins"/>
+                android:fontFamily="@font/poppins" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-        <Button
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/bHubungi"
-            android:text="Hubungi"
-            android:fontFamily="@font/poppins_bold"
-            android:backgroundTint="#185CB4"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="5dp"/>
+            <TextView
+                android:id="@+id/tvAlamat"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blackwhite"
+                android:text="@string/card_pelanggan_alamat"
+                android:textSize="16sp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/poppins" />
 
-        <Button
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/bLihat"
-            android:text="Lihat"
-            android:fontFamily="@font/poppins_bold"
-            android:backgroundTint="#54DED7"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="5dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="0dp">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/bHubungi"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/card_pelanggan_bhubungi"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="@color/white"
+                    android:backgroundTint="#185CB4" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/bLihat"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/card_pelanggan_blihat"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppins_bold"
+                    android:backgroundTint="#54DED7" />
+            </LinearLayout>
         </LinearLayout>
-        </LinearLayout>
-
     </androidx.cardview.widget.CardView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

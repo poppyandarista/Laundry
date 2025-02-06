@@ -5,6 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bgtambahactivity"
+    android:padding="5dp"
     tools:context=".cabang.TambahCabang">
 
     <TextView
@@ -12,20 +14,22 @@
         android:layout_height="wrap_content"
         android:id="@+id/tvTambahCabang"
         android:text="Tambah Cabang"
+        android:textColor="@color/blackwhite"
         android:fontFamily="@font/poppins_bold"
-        android:textSize="28sp"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="20dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvNamaCabang"
-        android:text="Nama Cabang"
+        android:text="@string/nama_cabang"
+        android:textColor="@color/blackwhite"
         android:fontFamily="@font/poppins"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,9 +37,10 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="Nama Cabang"
+        android:layout_height="48dp"
+        android:hint="@string/nama_cabang"
         android:fontFamily="@font/poppins"
+        android:textColorHint="#bbbbbb"
         android:paddingStart="10dp"
         android:id="@+id/etNamaCabang"
         android:background="@drawable/border_editor"
@@ -49,8 +54,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/tvAlamatCabang"
         android:text="Alamat Cabang"
+        android:textColor="@color/blackwhite"
         android:fontFamily="@font/poppins"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,10 +64,11 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="48dp"
         android:hint="Alamat Cabang"
         android:fontFamily="@font/poppins"
         android:id="@+id/etAlamatCabang"
+        android:textColorHint="#bbbbbb"
         android:paddingStart="10dp"
         android:background="@drawable/border_editor"
         android:layout_marginStart="10dp"
@@ -74,8 +81,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/tvNohpCabang"
         android:text="No HP Cabang"
+        android:textColor="@color/blackwhite"
         android:fontFamily="@font/poppins"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,10 +91,11 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="48dp"
         android:hint="No HP Cabang"
         android:fontFamily="@font/poppins"
         android:id="@+id/etNohpCabang"
+        android:textColorHint="#bbbbbb"
         android:paddingStart="10dp"
         android:background="@drawable/border_editor"
         android:layout_marginStart="10dp"
@@ -99,8 +108,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/tvManagerCabang"
         android:text="Manager Cabang"
+        android:textColor="@color/blackwhite"
         android:fontFamily="@font/poppins"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -108,12 +118,13 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="48dp"
         android:hint="Manager Cabang"
         android:fontFamily="@font/poppins"
         android:id="@+id/etManagerCabang"
         android:paddingStart="10dp"
         android:background="@drawable/border_editor"
+        android:textColorHint="#bbbbbb"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="5dp"
@@ -123,11 +134,12 @@
     <Button
         android:layout_width="300dp"
         android:layout_height="55dp"
-        android:text="SIMPAN"
+        android:text="@string/bsimpan"
+        android:textColorHint="@color/white"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="20dp"
-        android:backgroundTint="#16528E"
+        android:backgroundTint="@color/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etManagerCabang"/>

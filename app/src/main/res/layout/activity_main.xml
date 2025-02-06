@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#F1F2F4">
+    android:background="@color/bg">
 
     <ImageView
         android:id="@+id/topBg"
@@ -24,7 +24,7 @@
         android:fontFamily="@font/poppins_bold"
         android:layout_marginTop="30dp"
         android:layout_marginStart="15dp"
-        android:text="Selamat Pagi, Poppy!"
+        android:text="Selamat Pagi, -!"
         android:textColor="#fff"
         app:layout_constraintBottom_toTopOf="@+id/tanggal"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +45,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview1"
-        android:layout_width="320dp"
+        android:layout_width="340dp"
         android:layout_height="170dp"
         android:layout_marginTop="5dp"
         app:cardCornerRadius="25dp"
@@ -59,7 +59,8 @@
                 android:id="@+id/tvestimasi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Estimasi Hari ini"
+                android:text="@string/tvestimasi_hari_ini"
+                android:textColor="@color/blackwhite"
                 android:fontFamily="@font/poppins_bold"
                 android:textSize="16sp"
                 android:layout_marginTop="8dp"
@@ -72,6 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Rp.40.000,-"
+                android:textColor="@color/blackwhite"
                 android:textSize="16sp"
                 android:layout_marginTop="8dp"
                 android:layout_marginStart="60dp"
@@ -101,7 +103,8 @@
                 android:id="@+id/tvTransaksi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Transaksi"
+                android:text="@string/tv_transaksi"
+                android:textColor="@color/blackwhite"
                 android:textSize="15sp"
                 android:fontFamily="@font/poppins_bold"
                 android:layout_marginTop="5dp"
@@ -121,7 +124,8 @@
                 android:id="@+id/tvPelanggan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pelanggan"
+                android:text="@string/tv_pelanggan"
+                android:textColor="@color/blackwhite"
                 android:textSize="15sp"
                 android:fontFamily="@font/poppins_bold"
                 android:layout_marginTop="5dp"
@@ -141,7 +145,8 @@
                 android:id="@+id/tvLaporan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Laporan"
+                android:text="@string/tv_laporan"
+                android:textColor="@color/blackwhite"
                 android:fontFamily="@font/poppins_bold"
                 android:textSize="15sp"
                 android:layout_marginTop="5dp"
@@ -155,10 +160,10 @@
         android:id="@+id/siapmelayani"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Siap melayani pelanggan dengan setulus hati"
+        android:text="@string/tv_siapmelayanipelanggan"
         android:fontFamily="@font/poppins_bold"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textColor="@color/black"
+        android:textColor="@color/blackwhite"
         app:layout_constraintStart_toStartOf="parent"
         android:textSize="18sp"
         android:textAlignment="center"
@@ -171,9 +176,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/subjudulsiap"
-        android:text="Jangan Kecewakan Pelanggan"
+        android:text="@string/tv_jangankecewakanpelanggan"
         android:fontFamily="@font/poppins"
-        android:textColor="@color/black"
+        android:textColor="@color/blackwhite"
         android:textSize="15sp"
         android:layout_marginStart="15dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -203,6 +208,7 @@
                 <ImageView
                     android:layout_width="90dp"
                     android:layout_height="90dp"
+                    android:id="@+id/ivAkun"
                     android:src="@drawable/akun" />
 
                 <TextView
@@ -211,7 +217,8 @@
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
-                    android:text="Akun"
+                    android:text="@string/tv_akun"
+                    android:textColor="@color/blackwhite"
                     android:textSize="10sp" />
             </LinearLayout>
         </FrameLayout>
@@ -241,6 +248,7 @@
                 <ImageView
                     android:layout_width="90dp"
                     android:layout_height="90dp"
+                    android:id="@+id/ivLayanan"
                     android:src="@drawable/layanan" />
 
                 <TextView
@@ -249,7 +257,8 @@
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
-                    android:text="Layanan"
+                    android:text="@string/tv_layanan"
+                    android:textColor="@color/blackwhite"
                     android:textSize="10sp" />
             </LinearLayout>
         </FrameLayout>
@@ -279,6 +288,7 @@
                 <ImageView
                     android:layout_width="90dp"
                     android:layout_height="90dp"
+                    android:id="@+id/ivTambahan"
                     android:src="@drawable/tambahan" />
 
                 <TextView
@@ -287,7 +297,8 @@
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
-                    android:text="Tambahan"
+                    android:text="@string/tv_tambahan"
+                    android:textColor="@color/blackwhite"
                     android:textSize="10sp" />
             </LinearLayout>
         </FrameLayout>
@@ -317,6 +328,7 @@
                 <ImageView
                     android:layout_width="90dp"
                     android:layout_height="90dp"
+                    android:id="@+id/ivPegawai"
                     android:src="@drawable/pegawai" />
 
                 <TextView
@@ -325,7 +337,8 @@
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
-                    android:text="Pegawai"
+                    android:text="@string/tv_pegawai"
+                    android:textColor="@color/blackwhite"
                     android:textSize="10sp" />
             </LinearLayout>
         </FrameLayout>
@@ -355,6 +368,7 @@
                 <ImageView
                     android:layout_width="90dp"
                     android:layout_height="90dp"
+                    android:id="@+id/ivCabang"
                     android:src="@drawable/cabang" />
 
                 <TextView
@@ -363,7 +377,8 @@
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
-                    android:text="Cabang"
+                    android:text="@string/tv_cabang"
+                    android:textColor="@color/blackwhite"
                     android:textSize="10sp" />
             </LinearLayout>
         </FrameLayout>
@@ -401,7 +416,8 @@
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/poppins_bold"
                     android:gravity="center"
-                    android:text="Printer"
+                    android:text="@string/tv_printer"
+                    android:textColor="@color/blackwhite"
                     android:textSize="10sp" />
             </LinearLayout>
         </FrameLayout>

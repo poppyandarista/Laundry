@@ -7,8 +7,8 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cvCARD_PEGAWAI"
         android:layout_width="match_parent"
-        android:layout_height="185dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="245dp"
+        android:layout_marginTop="15dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         app:cardCornerRadius="15dp"
@@ -21,20 +21,23 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/tvIdPegawai"
-                android:text="ID Pegawai"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:text="@string/card_pegawai_id"
+                android:fontFamily="@font/poppins_bold"
                 android:textSize="16sp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/poppins_bold"/>
+                android:background="#7181C5"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:padding="8dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvNamaPegawai"
-                android:text="Nama Pegawai"
+                android:text="@string/card_pegawai_nama"
+                android:textColor="@color/blackwhite"
                 android:textSize="16sp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="5dp"
@@ -44,8 +47,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/Jabatan"
-                android:text="Jabatan"
+                android:id="@+id/tvAlamat"
+                android:textColor="@color/blackwhite"
+                android:text="@string/card_pelanggan_alamat"
                 android:textSize="16sp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="5dp"
@@ -54,8 +58,31 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/Nohp"
-                android:text="No.HP"
+                android:id="@+id/tvNohp"
+                android:text="@string/card_pelanggan_nohp"
+                android:textColor="@color/blackwhite"
+                android:textSize="16sp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/poppins"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvTerdaftar"
+                android:text="@string/card_pelanggan_terdaftar"
+                android:textColor="@color/blackwhite"
+                android:textSize="16sp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/poppins"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvCabang"
+                android:text="@string/card_cabang"
+                android:textColor="@color/blackwhite"
                 android:textSize="16sp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="5dp"
@@ -69,19 +96,21 @@
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/bHubungi"
-                    android:text="Hubungi"
+                    android:text="@string/card_pelanggan_bhubungi"
                     android:fontFamily="@font/poppins_bold"
                     android:backgroundTint="#185CB4"
                     android:layout_marginStart="8dp"
+                    android:textColor="@color/white"
                     android:layout_marginEnd="5dp"/>
 
                 <Button
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/bLihat"
-                    android:text="Lihat"
+                    android:text="@string/card_pelanggan_blihat"
                     android:fontFamily="@font/poppins_bold"
                     android:backgroundTint="#54DED7"
+                    android:textColor="@color/white"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="5dp"/>
             </LinearLayout>

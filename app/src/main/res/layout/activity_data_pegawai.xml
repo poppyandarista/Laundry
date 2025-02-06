@@ -5,13 +5,15 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg"
     tools:context=".pegawai.DataPegawai">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/rvDATA_PEGAWAI"
         tools:listitem="@layout/card_data_pegawai"
+        tools:ignore="MissingConstraints"
         />
 
     <RelativeLayout

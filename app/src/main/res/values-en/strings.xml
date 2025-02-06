@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Laundry</string>
+    <string name="card_pelanggan_id">Customer ID</string>
+    <string name="card_pelanggan_terdaftar">Registered</string>
+    <string name="card_pelanggan_nama_pelanggan">Customer Name</string>
+    <string name="card_pelanggan_nohp">Phone Number</string>
+    <string name="card_pelanggan_alamat">Address</string>
+    <string name="card_pelanggan_blihat">See</string>
+    <string name="card_pelanggan_bhubungi">Contact</string>
+    <string name="card_pegawai_id">Employee ID</string>
+    <string name="card_pegawai_nama">Employee Name</string>
+    <string name="card_cabang">Branch</string>
+    <string name="tvtambah_pelanggan">Add Costumer</string>
+    <string name="tv_nama_lengkap">Full Name</string>
+    <string name="tv_no_hp_aktif">Active Mobile Number</string>
+    <string name="bsimpan">SAVE</string>
+    <string name="nama_cabang">Branch Name</string>
+    <string name="tv_tambah_pegawai">Add Employee</string>
+    <string name="card_tambahan_namalayanan">Additional Service Name</string>
+    <string name="card_tambahan_harga">Price</string>
+    <string name="card_tambahan_namacabang">Branch Name</string>
+    <string name="card_tambahan_status">Status</string>
+    <string name="tvedit">Edit</string>
+    <string name="tvtambah_layanan_tambahan">Add Additional Services</string>
+    <string name="card_pegawai_jeniskelamin">Gender</string>
+    <string name="card_pegawai_ttl">Place, Date of Birth</string>
+    <string name="card_layanan_namalayanan">Service Name</string>
+    <string name="card_layanan_id">Service ID</string>
+    <string name="tvestimasi_hari_ini">Today\'s estimate</string>
+    <string name="tv_transaksi">Transactions</string>
+    <string name="tv_pelanggan">Costumers</string>
+    <string name="tv_laporan">Report</string>
+    <string name="tv_siapmelayanipelanggan">Ready to Serve Costumers Sincerely</string>
+    <string name="tv_jangankecewakanpelanggan">Don\'t Dissapoint Costumers</string>
+    <string name="tv_akun">Account</string>
+    <string name="tv_layanan">Services</string>
+    <string name="tv_tambahan">Additional</string>
+    <string name="tv_pegawai">Employees</string>
+    <string name="tv_cabang">"Branches  "</string>
+    <string name="tv_printer">Printer</string>
+    <string name="tv_main_selamat">Good morning, -!</string>
+    <string name="sukses_simpan_pelanggan">Customer data has been successfully saved!</string>
+    <string name="gagal_simpan_pelanggan">Failed to save customer data!</string>
+</resources>
