@@ -42,4 +42,11 @@
     <string name="tv_main_selamat">Selamat Pagi, -!</string>
     <string name="sukses_simpan_pelanggan">Data pelanggan berhasil disimpan!</string>
     <string name="gagal_simpan_pelanggan">Gagal menyimpan data pelanggan!</string>
+    <string name="card_pegawai_alamat">Alamat</string>
+    <string name="sukses_simpan_pegawai">Data pegawai berhasil disimpan!</string>
+    <string name="gagal_simpan_pegawai">Gagal menyimpan data pegawai!</string>
+    <string name="card_pegawai_terdaftar">Terdaftar</string>
+    <string name="card_pegawai_bhubungi">Hubungi</string>
+    <string name="card_pegawai_blihat">Lihat</string>
+    <string name="card_pegawai_nohp">No Hp</string>
 </resources>
