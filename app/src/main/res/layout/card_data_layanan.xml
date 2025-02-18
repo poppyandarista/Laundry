@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="5dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvCARD_LAYANAN"
         android:layout_width="match_parent"
-        android:layout_height="135dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
@@ -23,14 +24,14 @@
             <TextView
                 android:id="@+id/tvIdLayanan"
                 android:layout_width="match_parent"
-                android:layout_height="38dp"
+                android:layout_height="33dp"
                 android:text="@string/card_layanan_id"
                 android:fontFamily="@font/poppins_bold"
                 android:textSize="16sp"
                 android:background="#C571C4"
                 android:textColor="#fff"
                 android:textStyle="bold"
-                android:padding="8dp"/>
+                android:padding="5dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -39,7 +40,7 @@
                 android:text="@string/card_layanan_namalayanan"
                 android:textColor="@color/blackwhite"
                 android:textSize="16sp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/poppins"
                 />
@@ -51,7 +52,7 @@
                 android:text="@string/nama_cabang"
                 android:textColor="@color/blackwhite"
                 android:textSize="16sp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/poppins"/>
 

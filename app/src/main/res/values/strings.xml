@@ -48,4 +48,17 @@
     <string name="card_pegawai_bhubungi">Hubungi</string>
     <string name="card_pegawai_blihat">Lihat</string>
     <string name="card_pegawai_nohp">No Hp</string>
+    <string name="card_layanan_harga">Harga</string>
+    <string name="sukses_simpan_layanan">Data layanan berhasil disimpan!</string>
+    <string name="gagal_simpan_layanan">Gagal menyimpan data layanan!</string>
+    <string name="card_tambah_layanan">Tambah Layanan</string>
+    <string name="card_harga_layanan">Harga Layanan</string>
+    <string name="tvAlamatCabang">Alamat Cabang</string>
+    <string name="tvNoHpCabang">No Hp Cabang</string>
+    <string name="tvManagerCabang">Manager Cabang</string>
+    <string name="tvTambahCabang">Tambah Cabang</string>
+    <string name="greeting_morning">Selamat pagi,</string>
+    <string name="greeting_afternoon">Selamat siang,</string>
+    <string name="greeting_evening">Selamat sore,</string>
+    <string name="greeting_night">Selamat malam,</string>
 </resources>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:padding="5dp">
 
     <androidx.cardview.widget.CardView
@@ -21,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/tvIdPegawai"
                 android:layout_width="match_parent"
@@ -34,91 +35,91 @@
                 android:padding="5dp" />
 
             <TextView
+                android:id="@+id/tvNamaPegawai"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvNamaPegawai"
                 android:text="@string/card_pegawai_nama"
                 android:textColor="@color/blackwhite"
                 android:textSize="16sp"
-                android:layout_marginStart="5dp"
                 android:layout_marginTop="5dp"
-                android:fontFamily="@font/poppins"
-                />
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/poppins" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/tvAlamatPegawai"
-                android:textColor="@color/blackwhite"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_height="wrap_content"
                 android:text="@string/card_pegawai_alamat"
-                android:textSize="16sp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="0dp"
-                android:fontFamily="@font/poppins"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvNoHpPegawai"
-                android:text="@string/card_pegawai_nohp"
                 android:textColor="@color/blackwhite"
                 android:textSize="16sp"
-                android:layout_marginStart="5dp"
                 android:layout_marginTop="0dp"
-                android:fontFamily="@font/poppins"/>
+                android:fontFamily="@font/poppins" />
 
             <TextView
+                android:id="@+id/tvNoHpPegawai"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/blackwhite"
+                android:text="@string/card_pegawai_nohp"
+                android:textSize="16sp"
+                android:layout_marginTop="0dp"
+                android:fontFamily="@font/poppins" />
+
+            <TextView
                 android:id="@+id/tvTerdaftar_pegawai"
                 android:text="@string/card_pegawai_terdaftar"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_height="wrap_content"
                 android:textColor="@color/blackwhite"
                 android:textSize="16sp"
-                android:layout_marginStart="5dp"
                 android:layout_marginTop="0dp"
-                android:fontFamily="@font/poppins"/>
+                android:fontFamily="@font/poppins" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/tvCabang_pegawai"
                 android:text="@string/card_cabang"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_height="wrap_content"
                 android:textColor="@color/blackwhite"
                 android:textSize="16sp"
-                android:layout_marginStart="5dp"
                 android:layout_marginTop="0dp"
-                android:fontFamily="@font/poppins"/>
+                android:fontFamily="@font/poppins" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="0dp">
+
                 <Button
-                    android:layout_width="180dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:id="@+id/bHubungi_pegawai"
                     android:text="@string/card_pegawai_bhubungi"
-                    android:fontFamily="@font/poppins_bold"
-                    android:backgroundTint="#185CB4"
                     android:layout_marginStart="20dp"
-                    android:textColor="@color/white"
                     android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="5dp"/>
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="@color/white"
+                    android:backgroundTint="#185CB4" />
 
                 <Button
-                    android:layout_width="150dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:id="@+id/bLihat_pegawai"
                     android:text="@string/card_pegawai_blihat"
-                    android:fontFamily="@font/poppins_bold"
-                    android:backgroundTint="#54DED7"
-                    android:textColor="@color/white"
+                    android:layout_marginEnd="20dp"
                     android:layout_marginStart="5dp"
-                    android:layout_marginEnd="20dp"/>
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppins_bold"
+                    android:backgroundTint="#54DED7" />
             </LinearLayout>
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

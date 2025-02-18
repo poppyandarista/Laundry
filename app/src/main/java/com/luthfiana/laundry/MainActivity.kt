@@ -48,10 +48,10 @@ class MainActivity : AppCompatActivity() {
         val hour = calendar.get(Calendar.HOUR_OF_DAY)
 
         val greeting = when (hour) {
-            in 5..11 -> "Selamat Pagi,"
-            in 12..15 -> "Selamat Siang,"
-            in 16..18 -> "Selamat Sore,"
-            else -> "Selamat Malam,"
+            in 5..11 -> getString(R.string.greeting_morning)
+            in 12..15 -> getString(R.string.greeting_afternoon)
+            in 16..18 -> getString(R.string.greeting_evening)
+            else -> getString(R.string.greeting_night)
         }
 
         textSelamat.text = "$greeting Poppy!"
