@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardLaporan"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="15dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvNomorAntrian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[1]"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/blackwhite"
+                android:textSize="14sp"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/tvNamaPelanggan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yulia"
+                android:textColor="@color/blackwhite"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvStatusPembayaran"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Belum Dibayar"
+                android:textSize="12sp"
+                android:padding="6dp"
+                android:textColor="#D9534F"
+                android:fontFamily="@font/poppins_bold"
+                android:background="@drawable/bg_status_merah" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvTanggalOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2025-02-19 20:08:18"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/blackwhite"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="#DDDDDD" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/keranjang"
+                android:layout_marginEnd="10dp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tvLayananUtama"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cuci Lipat 6kg"
+                    android:textColor="@color/blackwhite"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvJumlahTambahan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="+3 Layanan Tambahan"
+                    android:textColor="@color/blackwhite"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Garis pembatas -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="#DDDDDD" />
+
+        <!-- Total dan Tombol -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+
+            <LinearLayout
+                android:id="@+id/totalBayarLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Bayar"
+                    android:textColor="@color/blackwhite"
+                    android:fontFamily="@font/poppins"
+                    android:id="@+id/tvTotalBayar" />
+
+                <TextView
+                    android:id="@+id/tvHargaTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp36.000,00"
+                    android:textColor="@color/blackwhite"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/bBayarSekarang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bayar Sekarang"
+                android:fontFamily="@font/poppins_bold"
+                android:backgroundTint="#FF3D00"
+                android:textColor="#FFFFFF"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

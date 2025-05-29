@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    tools:context=".transaksi.transaksi">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvTransaksi_atas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_marginStart="5dp"
+                android:id="@+id/judultransaksi_pelanggan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Data Pelanggan"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="20sp"
+                android:textColor="@color/blackwhite" />
+
+            <TextView
+                android:layout_marginStart="5dp"
+                android:id="@+id/namapelanggan_transaksi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Pelanggan:"
+                android:fontFamily="@font/poppins"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_marginStart="5dp"
+                android:id="@+id/nohp_transaksi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No HP:"
+                android:fontFamily="@font/poppins"
+                android:textSize="16sp"/>
+
+            <Button
+                android:id="@+id/bPilihPelanggan"
+                android:layout_width="300dp"
+                android:layout_height="match_parent"
+                android:text="Pilih Pelanggan"
+                android:fontFamily="@font/poppins_bold"
+                android:backgroundTint="#55DED7"
+                android:layout_marginStart="30dp"/>
+
+            <TextView
+                android:layout_marginStart="5dp"
+                android:id="@+id/judultrasaksi_layanan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Layanan Utama"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/blackwhite" />
+
+            <TextView
+                android:layout_marginStart="5dp"
+                android:id="@+id/namalayanan_transaksi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Layanan:"
+                android:fontFamily="@font/poppins"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_marginStart="5dp"
+                android:id="@+id/harga_transaksi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Harga:"
+                android:fontFamily="@font/poppins"
+                android:textSize="16sp"/>
+
+            <Button
+                android:id="@+id/bPilihLayanan"
+                android:layout_width="300dp"
+                android:layout_height="match_parent"
+                android:text="Pilih Layanan"
+                android:fontFamily="@font/poppins_bold"
+                android:backgroundTint="#185CB4"
+                android:layout_marginStart="30dp"/>
+
+            <TextView
+                android:layout_marginStart="5dp"
+                android:id="@+id/judultrasaksi_layanantambahan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Layanan Tambahan"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/blackwhite" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/nsv_transaksidata"
+        app:layout_constraintTop_toBottomOf="@id/cvTransaksi_atas"
+        app:layout_constraintBottom_toTopOf="@id/cvTransaksi_bawah"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTransaksi_layanantambahan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/card_pilih_tambahan"/>
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvTransaksi_bawah"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/bTambahan"
+                android:text="Tambahan"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/white"
+                android:backgroundTint="#FEC109" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/bProses"
+                android:text="Proses"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins_bold"
+                android:backgroundTint="#28D368" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

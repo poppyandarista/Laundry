@@ -22,6 +22,7 @@ class DataPelanggan : AppCompatActivity() {
     private val myRef = database.getReference("pelanggan")
     private lateinit var rvDataPelanggan: RecyclerView
     private lateinit var pelangganList: ArrayList<ModelPelanggan>
+    private lateinit var adapter: DataPelangganAdapter
     private lateinit var fabTambahPelanggan: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +40,14 @@ class DataPelanggan : AppCompatActivity() {
         }
 
         fabTambahPelanggan.setOnClickListener {
-            startActivity(Intent(this@DataPelanggan, TambahPelanggan::class.java))
+            val intent = Intent(this@DataPelanggan, TambahPelanggan::class.java)
+            intent.putExtra("judul", this.getString(R.string.tvtambah_pelanggan))
+            intent.putExtra("idPelanggan", "")
+            intent.putExtra("namaPelanggan", "")
+            intent.putExtra("idCabang", "")
+            intent.putExtra("alamatPelanggan", "")
+            intent.putExtra("nohpPelanggan", "")
+            startActivity(intent)
         }
     }
 
@@ -49,12 +57,14 @@ class DataPelanggan : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
+        pelangganList = ArrayList()
+        adapter = DataPelangganAdapter(pelangganList)
         rvDataPelanggan.layoutManager = LinearLayoutManager(this).apply {
             reverseLayout = true
             stackFromEnd = true
         }
         rvDataPelanggan.setHasFixedSize(true)
-        pelangganList = ArrayList()
+        rvDataPelanggan.adapter = adapter
     }
 
     private fun getData() {
@@ -67,9 +77,7 @@ class DataPelanggan : AppCompatActivity() {
                         val pelanggan = childSnapshot.getValue(ModelPelanggan::class.java)
                         pelanggan?.let { pelangganList.add(it) }
                     }
-                    rvDataPelanggan.adapter = DataPelangganAdapter(pelangganList).also {
-                        it.notifyDataSetChanged()
-                    }
+                    adapter.notifyDataSetChanged()
                 }
             }
 
@@ -77,5 +85,4 @@ class DataPelanggan : AppCompatActivity() {
                 Toast.makeText(this@DataPelanggan, databaseError.message, Toast.LENGTH_SHORT).show()
             }
         })
-    }
-}
+    }}

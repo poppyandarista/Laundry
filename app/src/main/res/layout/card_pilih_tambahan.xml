@@ -1,0 +1,85 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvCARD_PILIH_TAMBAHAN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Gunakan ConstraintLayout sebagai isi dari CardView -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Isi tetap dengan LinearLayout -->
+            <LinearLayout
+                android:id="@+id/linearIsiCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <TextView
+                    android:id="@+id/tvNoUrutanTambahan"
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:text="[1]"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textSize="16sp"
+                    android:background="#C571B1"
+                    android:textColor="#fff"
+                    android:textStyle="bold"
+                    android:padding="6dp"/>
+
+                <TextView
+                    android:id="@+id/tvNamaLayananTambahan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/card_tambahan_namalayanan"
+                    android:textColor="@color/blackwhite"
+                    android:textSize="18sp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/poppins" />
+
+                <TextView
+                    android:id="@+id/tvHargaTambahan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blackwhite"
+                    android:text="@string/card_tambahan_harga"
+                    android:textSize="16sp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="0dp"
+                    android:fontFamily="@font/poppins"/>
+            </LinearLayout>
+
+            <!-- Posisi bebas untuk icon delete -->
+            <ImageView
+                android:id="@+id/ivDelete"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/baseline_delete_24"
+                android:contentDescription="Delete"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:visibility="gone"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

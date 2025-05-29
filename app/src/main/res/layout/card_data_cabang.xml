@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="5dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvCARD_CABANG"
         android:layout_width="match_parent"
-        android:layout_height="215dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
@@ -23,7 +24,7 @@
             <TextView
                 android:id="@+id/tvIdCabang"
                 android:layout_width="match_parent"
-                android:layout_height="38dp"
+                android:layout_height="33dp"
                 android:text="ID Cabang"
                 android:fontFamily="@font/poppins_bold"
                 android:textSize="16sp"
@@ -39,7 +40,7 @@
                 android:text="@string/nama_cabang"
                 android:textColor="@color/blackwhite"
                 android:textSize="16sp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/poppins"
                 />
@@ -48,60 +49,52 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvAlamatCabang"
-                android:text="Alamat Cabang"
+                android:text="@string/tvAlamatCabang"
                 android:textColor="@color/blackwhite"
                 android:textSize="16sp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="0dp"
                 android:fontFamily="@font/poppins"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/NoHpCabang"
-                android:text="No HP Cabang"
+                android:id="@+id/tvNoHpCabang"
+                android:text="@string/tvNoHpCabang"
                 android:textColor="@color/blackwhite"
                 android:textSize="16sp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/poppins"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/ManagerCabang"
-                android:text="Manager Cabang"
-                android:textColor="@color/blackwhite"
-                android:textSize="16sp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="0dp"
                 android:fontFamily="@font/poppins"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <Button
-                    android:layout_width="180dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:id="@+id/bHubungi"
+                    android:id="@+id/bEdit"
                     android:text="@string/tvedit"
                     android:fontFamily="@font/poppins_bold"
                     android:backgroundTint="#185CB4"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="20dp"
                     android:textColor="@color/white"
+                    android:layout_marginBottom="5dp"
                     android:layout_marginEnd="5dp"/>
 
                 <Button
-                    android:layout_width="180dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:id="@+id/bLihat"
                     android:text="@string/card_pelanggan_blihat"
                     android:fontFamily="@font/poppins_bold"
                     android:backgroundTint="#54DED7"
                     android:textColor="@color/white"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="5dp"/>
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="20dp"/>
             </LinearLayout>
         </LinearLayout>
 

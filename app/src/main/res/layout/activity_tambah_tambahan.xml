@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvTambahTambahan"
-        android:text="@string/tvtambah_layanan_tambahan"
+        android:text="@string/tvTambahTambahan"
         android:fontFamily="@font/poppins_bold"
         android:textSize="22sp"
         android:textColor="@color/blackwhite"
@@ -69,6 +69,7 @@
         android:fontFamily="@font/poppins"
         android:textColorHint="#bbbbbb"
         android:id="@+id/etHarga"
+        android:inputType="phone"
         android:paddingStart="10dp"
         android:background="@drawable/border_editor"
         android:layout_marginStart="10dp"
@@ -94,7 +95,7 @@
         android:layout_height="48dp"
         android:hint="@string/card_tambahan_namacabang"
         android:fontFamily="@font/poppins"
-        android:id="@+id/etHargaTambahan"
+        android:id="@+id/etNamaCabang"
         android:textColorHint="#bbbbbb"
         android:paddingStart="10dp"
         android:background="@drawable/border_editor"
@@ -114,7 +115,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etHargaTambahan"/>
+        app:layout_constraintTop_toBottomOf="@id/etNamaCabang"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -134,6 +135,7 @@
         android:layout_width="300dp"
         android:layout_height="55dp"
         android:text="@string/bsimpan"
+        android:id="@+id/bSimpan"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="20dp"

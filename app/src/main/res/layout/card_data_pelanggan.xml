@@ -34,7 +34,7 @@
                 android:textStyle="bold"
                 android:padding="5dp" />
 
-    <TextView
+            <TextView
                 android:id="@+id/tvNamaPelanggan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -43,6 +43,27 @@
                 android:textSize="16sp"
                 android:layout_marginTop="5dp"
                 android:layout_marginStart="5dp"
+                android:fontFamily="@font/poppins" />
+
+            <TextView
+                android:id="@+id/tvCabangPelanggan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/card_cabang"
+                android:textColor="@color/blackwhite"
+                android:textSize="16sp"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/poppins" />
+
+            <TextView
+                android:id="@+id/tvAlamat"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blackwhite"
+                android:text="@string/card_pelanggan_alamat"
+                android:textSize="16sp"
+                android:layout_marginTop="0dp"
                 android:fontFamily="@font/poppins" />
 
             <TextView
@@ -63,17 +84,6 @@
                 android:layout_marginStart="5dp"
                 android:textColor="@color/blackwhite"
                 android:text="@string/card_pelanggan_terdaftar"
-                android:textSize="16sp"
-                android:layout_marginTop="0dp"
-                android:fontFamily="@font/poppins" />
-
-            <TextView
-                android:id="@+id/tvAlamat"
-                android:layout_width="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/blackwhite"
-                android:text="@string/card_pelanggan_alamat"
                 android:textSize="16sp"
                 android:layout_marginTop="0dp"
                 android:fontFamily="@font/poppins" />

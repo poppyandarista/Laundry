@@ -9,28 +9,24 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 import com.luthfiana.laundry.R
 import com.luthfiana.laundry.adapter.DataLayananAdapter
-import com.luthfiana.laundry.adapter.DataPelangganAdapter
 import com.luthfiana.laundry.modeldata.ModelLayanan
-import com.luthfiana.laundry.modeldata.ModelPelanggan
 
 class DataLayanan : AppCompatActivity() {
     private val database = FirebaseDatabase.getInstance()
     private val myRef = database.getReference("layanan")
     private lateinit var rvDataLayanan: RecyclerView
     private lateinit var layananList: ArrayList<ModelLayanan>
+    private lateinit var adapter: DataLayananAdapter
     private lateinit var fabTambahLayanan: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_data_layanan)
 
-       initViews()
+        initViews()
         setupRecyclerView()
         getData()
 
@@ -39,15 +35,23 @@ class DataLayanan : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
         fabTambahLayanan.setOnClickListener {
             val intent = Intent(this@DataLayanan, TambahLayanan::class.java)
+            intent.putExtra("judul", getString(R.string.tvTambahLayanan))
+            intent.putExtra("idLayanan", "")
+            intent.putExtra("namaLayanan", "")
+            intent.putExtra("namaCabang", "")
+            intent.putExtra("hargaLayanan", "")
             startActivity(intent)
         }
     }
+
     private fun initViews() {
         rvDataLayanan = findViewById(R.id.rvDATA_LAYANAN)
         fabTambahLayanan = findViewById(R.id.fabTambahLayanan)
     }
+
     private fun setupRecyclerView() {
         rvDataLayanan.layoutManager = LinearLayoutManager(this).apply {
             reverseLayout = true
@@ -55,7 +59,10 @@ class DataLayanan : AppCompatActivity() {
         }
         rvDataLayanan.setHasFixedSize(true)
         layananList = ArrayList()
+        adapter = DataLayananAdapter(layananList)
+        rvDataLayanan.adapter = adapter
     }
+
     private fun getData() {
         val query = myRef.orderByChild("idLayanan").limitToLast(100)
         query.addValueEventListener(object : ValueEventListener {
@@ -66,9 +73,7 @@ class DataLayanan : AppCompatActivity() {
                         val layanan = childSnapshot.getValue(ModelLayanan::class.java)
                         layanan?.let { layananList.add(it) }
                     }
-                    rvDataLayanan.adapter = DataLayananAdapter(layananList).also {
-                        it.notifyDataSetChanged()
-                    }
+                    adapter.notifyDataSetChanged() // update tampilan
                 }
             }
 

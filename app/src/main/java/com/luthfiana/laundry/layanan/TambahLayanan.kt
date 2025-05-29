@@ -13,9 +13,6 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
 import com.luthfiana.laundry.R
 import com.luthfiana.laundry.modeldata.ModelLayanan
 
@@ -29,6 +26,8 @@ class TambahLayanan : AppCompatActivity() {
     lateinit var etCabangLayanan: EditText
     lateinit var etHargaLayanan: EditText
     lateinit var bSimpan: Button
+
+    var idLayanan: String=""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,10 +44,9 @@ class TambahLayanan : AppCompatActivity() {
         }
 
         bSimpan.setOnClickListener {
-            if (cekValidasi()) {
-                simpan()
-            }
+            cekValidasi()
         }
+
     }
 
     fun init() {
@@ -60,6 +58,28 @@ class TambahLayanan : AppCompatActivity() {
     }
 
     fun getData() {
+        idLayanan = intent.getStringExtra("idLayanan").toString()
+
+        val judul = intent.getStringExtra("judul")
+        val nama = intent.getStringExtra("namaLayanan")
+        val cabang = intent.getStringExtra("namaCabang")
+        val harga = intent.getStringExtra("hargaLayanan")
+
+        tvTambahLayanan.text = judul
+        etNamaLayanan.setText(nama)
+        etCabangLayanan.setText(cabang)
+        etHargaLayanan.setText(harga)
+
+        if (!tvTambahLayanan.text.equals(this.getString(R.string.tvTambahLayanan))) {
+            if (judul.equals("Edit Layanan")) {
+                mati()
+                bSimpan.text = "Sunting"
+            }
+        }else{
+            hidup()
+            etNamaLayanan.requestFocus()
+            bSimpan.text="Simpan"
+        }
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
@@ -88,44 +108,103 @@ class TambahLayanan : AppCompatActivity() {
 
         if (nama.isEmpty()) {
             etNamaLayanan.error = getString(R.string.card_layanan_namalayanan)
-            showToast(R.string.card_layanan_namalayanan)
+            Toast.makeText(this, getString(R.string.card_layanan_namalayanan), Toast.LENGTH_SHORT).show()
             etNamaLayanan.requestFocus()
             return false
         }
         if (cabang.isEmpty()) {
             etCabangLayanan.error = getString(R.string.nama_cabang)
-            showToast(R.string.nama_cabang)
+            Toast.makeText(this, getString(R.string.nama_cabang), Toast.LENGTH_SHORT).show()
             etCabangLayanan.requestFocus()
             return false
         }
         if (harga.isEmpty()) {
             etHargaLayanan.error = getString(R.string.card_layanan_harga)
-            showToast(R.string.card_layanan_harga)
+            Toast.makeText(this, getString(R.string.card_layanan_harga), Toast.LENGTH_SHORT).show()
             etHargaLayanan.requestFocus()
             return false
+        }
+        if (bSimpan.text == "Simpan") {
+            simpan()
+        } else if (bSimpan.text == "Sunting") {
+            hidup()
+            bSimpan.text = "Perbarui"
+        } else if (bSimpan.text == "Perbarui") {
+            update()
         }
         return true
     }
 
-    fun simpan() {
-        val layananBaru = myRef.push()
-        val layananId = layananBaru.key ?: return
+    fun mati(){
+        etNamaLayanan.isEnabled=false
+        etCabangLayanan.isEnabled=false
+        etHargaLayanan.isEnabled=false
+    }
+
+    fun hidup(){
+        etNamaLayanan.isEnabled=true
+        etCabangLayanan.isEnabled=true
+        etHargaLayanan.isEnabled=true
+    }
+
+    fun update (){
+        val layananRef = database.getReference("layanan").child(idLayanan)
 
         val data = ModelLayanan(
-            layananId,
+            idLayanan,
             etNamaLayanan.text.toString(),
             etCabangLayanan.text.toString(),
             etHargaLayanan.text.toString(),
         )
+    val updateData = mapOf(
+        "namaLayanan" to data.namaLayanan,
+        "namaCabang" to data.namaCabang,
+        "hargaLayanan" to data.hargaLayanan
+    )
+    layananRef.updateChildren(updateData)
+        .addOnSuccessListener {
+            Toast.makeText(this, "Data Layanan berhasil diperbarui", Toast.LENGTH_SHORT).show()
+            finish()
+        }
+        .addOnSuccessListener {
+            Toast.makeText(this, "Gagal memperbarui data Layanan", Toast.LENGTH_SHORT).show()
+        }
+    }
+    fun simpan() {
+        if (bSimpan.text.equals(this.getString(R.string.bsimpan))) {
+            val namaLayanan = etNamaLayanan.text.toString()
+            val cabangLayanan = etCabangLayanan.text.toString()
+            val hargaLayanan = etHargaLayanan.text.toString()
 
-        layananBaru.setValue(data)
-            .addOnSuccessListener {
-                showToast(R.string.sukses_simpan_layanan)
-                finish()
-            }
-            .addOnFailureListener {
-                showToast(R.string.gagal_simpan_layanan)
-            }
+            // Buat ID unik berdasarkan nama dan cabang (atau bisa sesuai kebijakanmu)
+            val layananId = myRef.push().key ?: return
+
+            val data = ModelLayanan(
+                layananId,
+                namaLayanan,
+                cabangLayanan,
+                hargaLayanan
+            )
+
+            // Simpan langsung menggunakan ID unik sebagai key
+            val layananRef = myRef.child(layananId)
+            layananRef.setValue(data)
+                .addOnSuccessListener {
+                    Toast.makeText(
+                        this,
+                        getString(R.string.sukses_simpan_layanan),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    finish()
+                }
+                .addOnFailureListener {
+                    Toast.makeText(
+                        this,
+                        getString(R.string.gagal_simpan_layanan),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+        }
     }
 
     private fun showToast(messageResId: Int) {

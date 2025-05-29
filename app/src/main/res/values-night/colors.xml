@@ -6,4 +6,5 @@
     <color name="blackwhite">#FFFFFFFF</color>
     <color name="button">#54DED7</color>
     <color name="bgtambahactivity">#000B58</color>
+    <color name="bgtransparant">#A6777B97</color>
 </resources>

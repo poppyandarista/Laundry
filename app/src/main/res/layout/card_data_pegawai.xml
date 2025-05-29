@@ -68,8 +68,8 @@
                 android:fontFamily="@font/poppins" />
 
             <TextView
-                android:id="@+id/tvTerdaftar_pegawai"
-                android:text="@string/card_pegawai_terdaftar"
+                android:id="@+id/tvCabang_pegawai"
+                android:text="@string/card_cabang"
                 android:layout_width="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_height="wrap_content"
@@ -79,8 +79,8 @@
                 android:fontFamily="@font/poppins" />
 
             <TextView
-                android:id="@+id/tvCabang_pegawai"
-                android:text="@string/card_cabang"
+                android:id="@+id/tvTerdaftar_pegawai"
+                android:text="@string/card_pegawai_terdaftar"
                 android:layout_width="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_height="wrap_content"

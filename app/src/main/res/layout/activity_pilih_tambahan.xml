@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".tambahan.PilihTambahan"
+    android:background="@color/bg">
+    <TextView
+        android:id="@+id/tvPILIH_TAMBAHAN_kosong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Data tambahan kosong"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="8dp" />
+
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/search_bartambahan"
+        android:layout_margin="8dp"
+        android:iconifiedByDefault="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:queryHint="Cari Data Tambahan"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvDATA_PILIH_TAMBAHAN"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        tools:listitem="@layout/card_pilih_tambahan"
+        app:layout_constraintTop_toBottomOf="@id/search_bartambahan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

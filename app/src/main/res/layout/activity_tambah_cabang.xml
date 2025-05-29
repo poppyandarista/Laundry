@@ -93,6 +93,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:hint="@string/tvNoHpCabang"
+        android:inputType="phone"
         android:fontFamily="@font/poppins"
         android:id="@+id/etNohpCabang"
         android:textColorHint="#bbbbbb"
@@ -101,38 +102,12 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="5dp"
+        android:maxLength="13"
         app:layout_constraintTop_toBottomOf="@id/tvNohpCabang"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvManagerCabang"
-        android:text="@string/tvManagerCabang"
-        android:textColor="@color/blackwhite"
-        android:fontFamily="@font/poppins"
-        android:textSize="16sp"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etNohpCabang"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:hint="@string/tvManagerCabang"
-        android:fontFamily="@font/poppins"
-        android:id="@+id/etManagerCabang"
-        android:paddingStart="10dp"
-        android:background="@drawable/border_editor"
-        android:textColorHint="#bbbbbb"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintTop_toBottomOf="@id/tvManagerCabang"/>
-
 
     <Button
         android:layout_width="300dp"
+        android:id="@+id/bSimpan"
         android:layout_height="55dp"
         android:text="@string/bsimpan"
         android:textColorHint="@color/white"
@@ -142,7 +117,7 @@
         android:backgroundTint="@color/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etManagerCabang"/>
+        app:layout_constraintTop_toBottomOf="@id/etNohpCabang"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <ImageView
+        android:id="@+id/topBg"
+        android:layout_width="350dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/topbg_land"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearkiri"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.65"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <ImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/akun"
+                android:layout_marginStart="95dp"
+                android:contentDescription="Logo"
+                android:layout_marginTop="40dp"/>
+            <TextView
+                android:id="@+id/tvSelamatDatang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selamat Datang"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="22sp"
+                android:layout_marginStart="65dp"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:id="@+id/tvSilakanLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:text="Silakan login untuk melanjutkan"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearkanan"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+
+            android:padding="24dp">
+
+            <TextView
+                android:id="@+id/tvNoHp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No HP"
+                android:textColor="@color/blackwhite"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="16sp"
+                android:layout_marginBottom="4dp"/>
+
+            <EditText
+                android:id="@+id/etNoHp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="No HP"
+                android:inputType="phone"
+                android:fontFamily="@font/poppins"
+                android:textColorHint="#bbbbbb"
+                android:background="@drawable/border_editor"
+                android:paddingStart="10dp"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:id="@+id/tvPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Password"
+                android:textColor="@color/blackwhite"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="16sp"
+                android:layout_marginBottom="4dp"/>
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:fontFamily="@font/poppins"
+                android:textColorHint="#bbbbbb"
+                android:background="@drawable/border_editor"
+                android:paddingStart="10dp"
+                android:layout_marginBottom="24dp"/>
+
+            <Button
+                android:id="@+id/bLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="LOGIN"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/button"
+                android:padding="12dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

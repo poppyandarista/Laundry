@@ -62,4 +62,15 @@
     <string name="greeting_afternoon">Selamat siang,</string>
     <string name="greeting_evening">Selamat sore,</string>
     <string name="greeting_night">Selamat malam,</string>
+    <string name="sukses_simpan_cabang">Data cabang berhasil disimpan!</string>
+    <string name="gagal_simpan_cabang">Gagal menyimpan data cabang!</string>
+    <string name="sukses_simpan_tambahan">Data layanan tambahan berhasil disimpan!</string>
+    <string name="gagal_simpan_tambahan">Gagal menyimpan data layanan tambahan!</string>
+    <string name="detail_pelanggan">Detail Pelanggan</string>
+    <string name="sunting">Sunting</string>
+    <string name="tv_hapus">Hapus</string>
+    <string name="tvTambahLayanan">Tambah Layanan</string>
+    <string name="tvTambahTambahan">Tambah Layanan Tambahan</string>
+    <string name="gagal_simpan_layanantambahan">Gagal menyimpan data layanan tambahan!</string>
+    <string name="sukses_simpan_layanantambahan">Data layanan tambahan berhasil disimpan!</string>
 </resources>

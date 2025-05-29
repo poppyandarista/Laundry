@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="10dp"
+            android:padding="10dp"
+            app:cardPreventCornerOverlap="false"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvMOD_DIALOG_PEGAWAI_Judul"
+                    android:paddingStart="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingEnd="10dp"
+                    android:text="Detail Pegawai"
+                    android:textColor="@color/blackwhite"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:fontFamily="@font/poppins_bold">
+                </TextView>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:background="@color/bgtransparant"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/tvDIALOG_MOD_PEGAWAI_ID_Judul"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_weight="1"
+                        android:gravity="start"
+                        android:textColor="@color/blackwhite"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="ID Pegawai"/>
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/tvDIALOG_MOD_PEGAWAI_ISI_Id"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="3dp"
+                        android:gravity="end"
+                        android:textColor="@color/blackwhite"
+                        android:text="@string/card_pelanggan_id"
+                        android:fontFamily="@font/poppins"
+                        android:layout_marginBottom="3dp"
+                        android:layout_weight="0.65"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/tvDIALOG_MOD_PEGAWAI_NAMA_Judul"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_weight="0.8"
+                        android:gravity="start"
+                        android:textColor="@color/blackwhite"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Nama Pegawai"/>
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/tvDIALOG_MOD_PEGAWAI_ISI_Nama"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="3dp"
+                        android:gravity="end"
+                        android:textColor="@color/blackwhite"
+                        android:text="Nama Pegawai"
+                        android:fontFamily="@font/poppins"
+                        android:layout_marginBottom="3dp"
+                        android:layout_weight="0.65"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:background="@color/bgtransparant"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:textColor="@color/blackwhite"
+                        android:id="@+id/tvDIALOG_MOD_PEGAWAI_Alamat_Judul"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_weight="1.35"
+                        android:gravity="start"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="@string/card_pelanggan_alamat"/>
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/tvDIALOG_MOD_PEGAWAI_ISI_Alamat"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/poppins"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="3dp"
+                        android:gravity="end"
+                        android:textColor="@color/blackwhite"
+                        android:text="@string/card_pelanggan_alamat"
+                        android:layout_marginBottom="3dp"
+                        android:layout_weight="0.65"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/tvDIALOG_MOD_PEGAWAI_NOHP_Judul"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_weight="1.35"
+                        android:gravity="start"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textColor="@color/blackwhite"
+                        android:text="@string/card_pelanggan_nohp"/>
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/tvDIALOG_MOD_PEGAWAI_ISI_Nohp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="3dp"
+                        android:fontFamily="@font/poppins"
+                        android:gravity="end"
+                        android:text="@string/card_pelanggan_nohp"
+                        android:textColor="@color/blackwhite"
+                        android:layout_marginBottom="3dp"
+                        android:layout_weight="0.65"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/bgtransparant"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/tvDIALOG_MOD_PEGAWAI_CABANG_Judul"
+                        android:layout_marginStart="10dp"
+                        android:textColor="@color/blackwhite"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_weight="1.35"
+                        android:gravity="start"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="@string/tv_cabang"/>
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/tvDIALOG_MOD_PEGAWAI_ISI_Cabang"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="3dp"
+                        android:gravity="end"
+                        android:fontFamily="@font/poppins"
+                        android:text="@string/tv_cabang"
+                        android:textColor="@color/blackwhite"
+                        android:layout_marginBottom="3dp"
+                        android:layout_weight="0.65"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/tvDIALOG_MOD_PEGAWAI_TERDAFTAR_Judul"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_weight="1.35"
+                        android:gravity="start"
+                        android:textColor="@color/blackwhite"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="@string/card_pelanggan_terdaftar"/>
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/tvDIALOG_MOD_PEGAWAI_ISI_Terdaftar"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="3dp"
+                        android:gravity="end"
+                        android:text="@string/card_pelanggan_terdaftar"
+                        android:textColor="@color/blackwhite"
+                        android:fontFamily="@font/poppins"
+                        android:layout_marginBottom="3dp"
+                        android:layout_weight="0.65"/>
+                </LinearLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="5dp">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:id="@+id/btDIALOG_MOD_PEGAWAI_Sunting"
+                        android:layout_marginEnd="8dp"
+                        android:backgroundTint="@color/button"
+                        android:text="@string/sunting"
+                        android:fontFamily="@font/poppins_bold"
+                        app:icon="@drawable/baseline_edit_square_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/btDIALOG_MOD_PEGAWAI_Hapus"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:id="@+id/btDIALOG_MOD_PEGAWAI_Hapus"
+                        android:layout_marginEnd="3dp"
+                        android:backgroundTint="@color/button"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="@string/tv_hapus"
+                        app:icon="@drawable/baseline_delete_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent  "
+                        app:layout_constraintStart_toEndOf="@id/btDIALOG_MOD_PEGAWAI_Sunting"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

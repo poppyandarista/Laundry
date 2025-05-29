@@ -11,10 +11,12 @@ import androidx.cardview.widget.CardView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.luthfiana.laundry.cabang.DataCabang
+import com.luthfiana.laundry.laporan.DataLaporan
 import com.luthfiana.laundry.layanan.DataLayanan
 import com.luthfiana.laundry.pegawai.DataPegawai
 import com.luthfiana.laundry.pelanggan.DataPelanggan
 import com.luthfiana.laundry.tambahan.DataTambahan
+import com.luthfiana.laundry.transaksi.transaksi
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.*
@@ -84,6 +86,16 @@ class MainActivity : AppCompatActivity() {
         val ivCabang: ImageView = findViewById(R.id.ivCabang)
         ivCabang.setOnClickListener {
             val intent = Intent(this@MainActivity, DataCabang::class.java)
+            startActivity(intent)
+        }
+        val ivLaporan: ImageView = findViewById(R.id.ivLaporan)
+        ivLaporan.setOnClickListener {
+            val intent = Intent(this@MainActivity, DataLaporan::class.java)
+            startActivity(intent)
+        }
+        val ivTransaksi: ImageView = findViewById(R.id.ivTransaksi)
+        ivTransaksi.setOnClickListener {
+            val intent = Intent(this@MainActivity, transaksi::class.java)
             startActivity(intent)
         }
     }

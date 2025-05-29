@@ -52,6 +52,34 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/tvCabangPelanggan"
+        android:text="@string/card_cabang"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/blackwhite"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etNama"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="@string/card_cabang"
+        android:fontFamily="@font/poppins"
+        android:id="@+id/etCabangPelanggan"
+        android:paddingStart="10dp"
+        android:background="@drawable/border_editor"
+        android:layout_marginStart="10dp"
+        android:textColorHint="#bbbbbb"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        android:maxLength="13"
+        app:layout_constraintTop_toBottomOf="@id/tvCabangPelanggan"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/tvAlamat"
         android:text="@string/card_pelanggan_alamat"
         android:fontFamily="@font/poppins"
@@ -60,7 +88,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etNama"/>
+        app:layout_constraintTop_toBottomOf="@id/etCabangPelanggan"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -96,39 +124,16 @@
         android:fontFamily="@font/poppins"
         android:id="@+id/etNohp"
         android:paddingStart="10dp"
+        android:inputType="phone"
         android:background="@drawable/border_editor"
         android:layout_marginStart="10dp"
         android:textColorHint="#bbbbbb"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="5dp"
+        android:maxLength="13"
         app:layout_constraintTop_toBottomOf="@id/tvNohp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvNamaCabang"
-        android:text="@string/nama_cabang"
-        android:fontFamily="@font/poppins"
-        android:textColor="@color/blackwhite"
-        android:textSize="16sp"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etNohp"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:hint="@string/nama_cabang"
-        android:fontFamily="@font/poppins"
-        android:id="@+id/etNamaCabang"
-        android:paddingStart="10dp"
-        android:background="@drawable/border_editor"
-        android:layout_marginStart="10dp"
-        android:textColorHint="#bbbbbb"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintTop_toBottomOf="@id/tvNamaCabang"/>
 
     <Button
         android:layout_width="300dp"
@@ -143,6 +148,6 @@
         android:backgroundTint="@color/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etNamaCabang"/>
+        app:layout_constraintTop_toBottomOf="@id/etNohp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
