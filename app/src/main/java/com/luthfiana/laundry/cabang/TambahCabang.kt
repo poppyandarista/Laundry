@@ -65,13 +65,15 @@ class TambahCabang : AppCompatActivity() {
         etAlamatCabang.setText(alamat)
         etNohpCabang.setText(nohp)
 
-        if (judul == "Edit Cabang") {
-            mati()
-            bSimpan.text = "Sunting"
+        if (!tvTambahCabang.text.equals(this.getString(R.string.tvTambahCabang))) {
+            if (judul.equals(this.getString(R.string.editcabang))) {
+                mati()
+                bSimpan.text = this.getString(R.string.sunting)
+            }
         } else {
             hidup()
             etNamaCabang.requestFocus()
-            bSimpan.text = "Simpan"
+            bSimpan.text = this.getString(R.string.simpan)
         }
     }
 
@@ -101,15 +103,14 @@ class TambahCabang : AppCompatActivity() {
             return false
         }
 
-        when (bSimpan.text.toString()) {
-            "Simpan" -> simpan()
-            "Sunting" -> {
-                hidup()
-                bSimpan.text = "Perbarui"
-            }
-            "Perbarui" -> update()
+        if (bSimpan.text == this.getString(R.string.simpan)) {
+            simpan()
+        } else if (bSimpan.text == this.getString(R.string.sunting)) {
+            hidup()
+            bSimpan.text = this.getString(R.string.perbarui)
+        } else if (bSimpan.text == this.getString(R.string.perbarui)) {
+            update()
         }
-
         return true
     }
 

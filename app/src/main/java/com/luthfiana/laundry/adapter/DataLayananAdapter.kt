@@ -30,8 +30,8 @@ class DataLayananAdapter (
         val layanan = listLayanan[position]
         holder.tvIdLayanan.text = layanan.idLayanan
         holder.tvNamaLayanan.text = layanan.namaLayanan
-        holder.tvHargaLayanan.text = "Harga: Rp. ${layanan.hargaLayanan}"
-        holder.tvCabangLayanan.text = "Cabang: ${layanan.namaCabang}"
+        holder.tvHargaLayanan.text = appContext.getString(R.string.card_harga, layanan.namaCabang)
+        holder.tvCabangLayanan.text = appContext.getString(R.string.card_cabangg, layanan.hargaLayanan)
 
 
         holder.cvCARD_LAYANAN.setOnClickListener {
@@ -39,8 +39,8 @@ class DataLayananAdapter (
             intent.putExtra("judul", "Edit Layanan")
             intent.putExtra("idLayanan", layanan.idLayanan)
             intent.putExtra("namaLayanan", layanan.namaLayanan)
-            intent.putExtra("namaCabang", layanan.namaCabang)
-            intent.putExtra("hargaLayanan", layanan.hargaLayanan)
+            intent.putExtra("namaCabang", layanan.hargaLayanan)
+            intent.putExtra("hargaLayanan", layanan.namaCabang)
             appContext.startActivity(intent)
         }
     }

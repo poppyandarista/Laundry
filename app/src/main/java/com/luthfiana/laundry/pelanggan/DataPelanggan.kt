@@ -60,8 +60,9 @@ class DataPelanggan : AppCompatActivity() {
         pelangganList = ArrayList()
         adapter = DataPelangganAdapter(pelangganList)
         rvDataPelanggan.layoutManager = LinearLayoutManager(this).apply {
-            reverseLayout = true
-            stackFromEnd = true
+            // Remove these if you want normal order (newest at bottom)
+            // reverseLayout = true
+            // stackFromEnd = true
         }
         rvDataPelanggan.setHasFixedSize(true)
         rvDataPelanggan.adapter = adapter
@@ -77,7 +78,11 @@ class DataPelanggan : AppCompatActivity() {
                         val pelanggan = childSnapshot.getValue(ModelPelanggan::class.java)
                         pelanggan?.let { pelangganList.add(it) }
                     }
+                    // Reverse the list if you want newest first
+                    pelangganList.reverse()
                     adapter.notifyDataSetChanged()
+                    // Scroll to top (position 0 is now the newest item)
+                    rvDataPelanggan.scrollToPosition(0)
                 }
             }
 

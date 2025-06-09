@@ -40,13 +40,13 @@ class PilihLayananAdapter(
 
         holder.tvIdLayanan.text = "[$nomor]"
         holder.tvNamaLayanan.text = item.namaLayanan
-        holder.tvHargaLayanan.text = "Harga: ${item.hargaLayanan}"
+        holder.tvHargaLayanan.text = appContext.getString(R.string.tvHarga_titikdua) + " " + item.namaCabang
 
         holder.cvCardLayanan.setOnClickListener {
             val intent = Intent()
             intent.putExtra("idLayanan", item.idLayanan)
             intent.putExtra("namaLayanan", item.namaLayanan)
-            intent.putExtra("hargaLayanan", item.hargaLayanan)
+            intent.putExtra("hargaLayanan", item.namaCabang)
             (appContext as Activity).setResult(Activity.RESULT_OK, intent)
             (appContext as Activity).finish()
         }

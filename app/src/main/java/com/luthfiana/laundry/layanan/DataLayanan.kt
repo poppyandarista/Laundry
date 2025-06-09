@@ -12,6 +12,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.*
 import com.luthfiana.laundry.R
 import com.luthfiana.laundry.adapter.DataLayananAdapter
+import com.luthfiana.laundry.adapter.DataPelangganAdapter
 import com.luthfiana.laundry.modeldata.ModelLayanan
 
 class DataLayanan : AppCompatActivity() {
@@ -53,13 +54,14 @@ class DataLayanan : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
-        rvDataLayanan.layoutManager = LinearLayoutManager(this).apply {
-            reverseLayout = true
-            stackFromEnd = true
-        }
-        rvDataLayanan.setHasFixedSize(true)
         layananList = ArrayList()
         adapter = DataLayananAdapter(layananList)
+        rvDataLayanan.layoutManager = LinearLayoutManager(this).apply {
+            // Remove these if you want normal order (newest at bottom)
+            // reverseLayout = true
+            // stackFromEnd = true
+        }
+        rvDataLayanan.setHasFixedSize(true)
         rvDataLayanan.adapter = adapter
     }
 
@@ -73,7 +75,10 @@ class DataLayanan : AppCompatActivity() {
                         val layanan = childSnapshot.getValue(ModelLayanan::class.java)
                         layanan?.let { layananList.add(it) }
                     }
-                    adapter.notifyDataSetChanged() // update tampilan
+                    layananList.reverse()
+                    adapter.notifyDataSetChanged()
+                    // Scroll to top (position 0 is now the newest item)
+                    rvDataLayanan.scrollToPosition(0)
                 }
             }
 

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/top_bg"
+    android:padding="5dp"
+    tools:context=".pelanggan.TambahPelanggan">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvTambahPelanggan"
+        android:text="@string/tvtambah_pelanggan"
+        android:layout_gravity="center"
+        android:textColor="@color/blackwhite"
+        android:fontFamily="@font/poppins_bold"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvNama"
+        android:text="@string/tv_nama_lengkap"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/blackwhite"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTambahPelanggan"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="@string/tv_nama_lengkap"
+        android:fontFamily="@font/poppins"
+        android:paddingStart="10dp"
+        android:id="@+id/etNama"
+        android:textColor="@color/black"
+        android:background="@drawable/border_editor"
+        android:layout_marginStart="10dp"
+        android:textColorHint="#bbbbbb"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/tvNama"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvCabangPelanggan"
+        android:text="@string/card_cabang"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/blackwhite"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etNama"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="@string/card_cabang"
+        android:fontFamily="@font/poppins"
+        android:id="@+id/etCabangPelanggan"
+        android:paddingStart="10dp"
+        android:textColor="@color/black"
+        android:background="@drawable/border_editor"
+        android:layout_marginStart="10dp"
+        android:textColorHint="#bbbbbb"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        android:maxLength="13"
+        app:layout_constraintTop_toBottomOf="@id/tvCabangPelanggan"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvAlamat"
+        android:text="@string/card_pelanggan_alamat"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/blackwhite"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etCabangPelanggan"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="@string/card_pelanggan_alamat"
+        android:fontFamily="@font/poppins"
+        android:id="@+id/etAlamat"
+        android:paddingStart="10dp"
+        android:textColor="@color/black"
+        android:background="@drawable/border_editor"
+        android:layout_marginStart="10dp"
+        android:textColorHint="#bbbbbb"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/tvAlamat"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvNohp"
+        android:text="@string/card_pelanggan_nohp"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/blackwhite"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etAlamat"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="@string/card_pelanggan_nohp"
+        android:fontFamily="@font/poppins"
+        android:id="@+id/etNohp"
+        android:paddingStart="10dp"
+        android:textColor="@color/black"
+        android:inputType="phone"
+        android:background="@drawable/border_editor"
+        android:layout_marginStart="10dp"
+        android:textColorHint="#bbbbbb"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        android:maxLength="13"
+        app:layout_constraintTop_toBottomOf="@id/tvNohp"/>
+
+
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:text="@string/bsimpan"
+        android:textColor="@color/blackwhite"
+        android:id="@+id/bSimpan"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins_bold"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etNohp"/>
+
+    </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

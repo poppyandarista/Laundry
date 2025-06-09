@@ -38,10 +38,10 @@ class DataPelangganAdapter(
 
         holder.tvIdPelanggan.text = pelanggan.idPelanggan
         holder.tvNamaPelanggan.text = pelanggan.namaPelanggan
-        holder.tvCabangPelanggan.text = "Cabang: ${pelanggan.idCabang}"
-        holder.tvAlamat.text = "Alamat: ${pelanggan.alamatPelanggan}"
-        holder.tvNoHpPelanggan.text = "No HP: ${pelanggan.nohpPelanggan}"
-        holder.tvTerdaftar.text = "Terdaftar: ${pelanggan.terdaftar}"
+        holder.tvCabangPelanggan.text = appContext.getString(R.string.card_cabangg, pelanggan.idCabang)
+        holder.tvAlamat.text = appContext.getString(R.string.card_alamat, pelanggan.alamatPelanggan)
+        holder.tvNoHpPelanggan.text = appContext.getString(R.string.card_nohp, pelanggan.nohpPelanggan)
+        holder.tvTerdaftar.text = appContext.getString(R.string.card_terdaftar, pelanggan.terdaftar)
 
         holder.cvCARD_PELANGGAN.setOnClickListener {
             val intent = Intent(appContext, TambahPelanggan::class.java)
@@ -118,19 +118,19 @@ class DataPelangganAdapter(
 
             btHapus.setOnClickListener {
                 AlertDialog.Builder(holder.itemView.context)
-                    .setTitle("Konfirmasi")
-                    .setMessage("Apakah Anda yakin ingin menghapus pelanggan ini?")
-                    .setPositiveButton("Hapus") { _, _ ->
-                        val idPelanggan = pelanggan.idPelanggan
+                    .setTitle(appContext.getString(R.string.konfirmasi))
+                    .setMessage(appContext.getString(R.string.konfirmasihapuspegawai))
+                    .setPositiveButton(appContext.getString(R.string.tv_hapus)) { _, _ ->
+                    val idPelanggan = pelanggan.idPelanggan
                         if (idPelanggan.isNullOrEmpty()) {
-                            Toast.makeText(holder.itemView.context, "ID Pelanggan tidak valid!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(appContext, appContext.getString(R.string.idtidakvalid), Toast.LENGTH_SHORT).show()
                             return@setPositiveButton
                         }
 
                         databaseReference = FirebaseDatabase.getInstance().getReference("pelanggan")
                         databaseReference.child(idPelanggan).removeValue()
                             .addOnSuccessListener {
-                                Toast.makeText(holder.itemView.context, "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(appContext, appContext.getString(R.string.databerhasildihapus), Toast.LENGTH_SHORT).show()
                                 val pos = holder.adapterPosition
                                 if (pos != RecyclerView.NO_POSITION && pos < listPelanggan.size) {
                                     listPelanggan.removeAt(pos)
@@ -139,10 +139,10 @@ class DataPelangganAdapter(
                                 dialog.dismiss()
                             }
                             .addOnFailureListener { e ->
-                                Toast.makeText(holder.itemView.context, "Gagal menghapus: ${e.message}", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(appContext, appContext.getString(R.string.gagalhapus) + ": ${e.message}", Toast.LENGTH_SHORT).show()
                             }
                     }
-                    .setNegativeButton("Batal", null)
+                    .setNegativeButton(appContext.getString(R.string.batal), null)
                     .show()
             }
         }

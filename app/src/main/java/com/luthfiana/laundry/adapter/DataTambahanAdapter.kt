@@ -35,9 +35,8 @@ class DataTambahanAdapter(
 
         holder.tvIdTambahan.text = tambahan.idTambahan
         holder.tvNamaLayananTambahan.text = tambahan.namaLayananTambahan
-        holder.tvHarga.text = "Harga: ${tambahan.hargaTambahan}"
-        holder.tvNamaCabang.text = "Cabang: ${tambahan.namaCabang}"
-        holder.tvStatus.text = "Status: ${tambahan.status}"
+        holder.tvHarga.text = appContext.getString(R.string.card_harga, tambahan.hargaTambahan)
+        holder.tvNamaCabang.text = appContext.getString(R.string.card_cabangg, tambahan.namaCabang)
 
         holder.cvCARD_TAMBAHAN.setOnClickListener {
             val intent = Intent(appContext, TambahTambahan::class.java)
@@ -46,7 +45,6 @@ class DataTambahanAdapter(
             intent.putExtra("namaLayananTambahan", tambahan.namaLayananTambahan)
             intent.putExtra("hargaTambahan", tambahan.hargaTambahan)
             intent.putExtra("namaCabang", tambahan.namaCabang)
-            intent.putExtra("status", tambahan.status)
             appContext.startActivity(intent)
         }
 
@@ -57,7 +55,6 @@ class DataTambahanAdapter(
             intent.putExtra("namaLayananTambahan", tambahan.namaLayananTambahan)
             intent.putExtra("hargaTambahan", tambahan.hargaTambahan)
             intent.putExtra("namaCabang", tambahan.namaCabang)
-            intent.putExtra("status", tambahan.status)
             appContext.startActivity(intent)
         }
 
@@ -81,7 +78,6 @@ class DataTambahanAdapter(
         val tvNama = dialogView.findViewById<TextView>(R.id.tvDIALOG_MOD_TAMBAHAN_ISI_NamaLayananTambahan)
         val tvHarga = dialogView.findViewById<TextView>(R.id.tvDIALOG_MOD_TAMBAHAN_ISI_Harga)
         val tvNamaCabang = dialogView.findViewById<TextView>(R.id.tvDIALOG_MOD_TAMBAHAN_ISI_NamaCabang)
-        val tvStatus = dialogView.findViewById<TextView>(R.id.tvDIALOG_MOD_TAMBAHAN_ISI_Status)
         val btSunting = dialogView.findViewById<Button>(R.id.btDIALOG_MOD_TAMBAHAN_Sunting)
         val btHapus = dialogView.findViewById<Button>(R.id.btDIALOG_MOD_TAMBAHAN_Hapus)
 
@@ -89,7 +85,6 @@ class DataTambahanAdapter(
         tvNama.text = tambahan.namaLayananTambahan
         tvHarga.text = tambahan.hargaTambahan
         tvNamaCabang.text = tambahan.namaCabang
-        tvStatus.text = tambahan.status
 
         val dialog = AlertDialog.Builder(appContext)
             .setView(dialogView)
@@ -104,22 +99,21 @@ class DataTambahanAdapter(
             intent.putExtra("namaLayananTambahan", tambahan.namaLayananTambahan)
             intent.putExtra("hargaTambahan", tambahan.hargaTambahan)
             intent.putExtra("namaCabang", tambahan.namaCabang)
-            intent.putExtra("status", tambahan.status)
             appContext.startActivity(intent)
             dialog.dismiss()
         }
 
         btHapus.setOnClickListener {
             AlertDialog.Builder(holder.itemView.context)
-                .setTitle("Konfirmasi")
-                .setMessage("Apakah Anda yakin ingin menghapus layanan tambahan ini?")
-                .setPositiveButton("Hapus") { _, _ ->
+                .setTitle(appContext.getString(R.string.konfirmasi))
+                .setMessage(appContext.getString(R.string.konfirmasi_hapustambahan))
+                .setPositiveButton(appContext.getString(R.string.tv_hapus)) { _, _ ->
                     val idTambahan = tambahan.idTambahan ?: return@setPositiveButton
                     val ref = FirebaseDatabase.getInstance().getReference("tambahan")
 
                     ref.child(idTambahan).removeValue()
                         .addOnSuccessListener {
-                            Toast.makeText(holder.itemView.context, "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(appContext, appContext.getString(R.string.databerhasildihapus), Toast.LENGTH_SHORT).show()
                             if (position in 0 until listTambahan.size) {
                                 listTambahan.removeAt(position)
                                 notifyItemRemoved(position)
@@ -127,10 +121,10 @@ class DataTambahanAdapter(
                             dialog.dismiss()
                         }
                         .addOnFailureListener { e ->
-                            Toast.makeText(holder.itemView.context, "Gagal menghapus: ${e.message}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(appContext, appContext.getString(R.string.gagalhapus) + ": ${e.message}", Toast.LENGTH_SHORT).show()
                         }
                 }
-                .setNegativeButton("Batal", null)
+                .setNegativeButton(appContext.getString(R.string.batal), null)
                 .show()
         }
     }
@@ -140,7 +134,6 @@ class DataTambahanAdapter(
         val tvNamaLayananTambahan: TextView = itemView.findViewById(R.id.tvNamaLayananTambahan)
         val tvHarga: TextView = itemView.findViewById(R.id.tvHarga)
         val tvNamaCabang: TextView = itemView.findViewById(R.id.tvNamaCabang)
-        val tvStatus: TextView = itemView.findViewById(R.id.tvStatus)
         val cvCARD_TAMBAHAN: CardView = itemView.findViewById(R.id.cvCARD_TAMBAHAN)
         val bEdit: Button = itemView.findViewById(R.id.bEdit)
         val bLihat: Button = itemView.findViewById(R.id.bLihat)

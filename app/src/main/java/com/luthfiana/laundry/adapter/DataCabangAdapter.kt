@@ -38,12 +38,12 @@ class DataCabangAdapter(
 
         holder.tvIdCabang.text = cabang.idCabang
         holder.tvNamaCabang.text = cabang.namaCabang
-        holder.tvAlamatCabang.text = "Alamat: ${cabang.alamatCabang}"
-        holder.tvNoHpCabang.text = "No HP: ${cabang.nohpCabang}"
+        holder.tvAlamatCabang.text = appContext.getString(R.string.card_alamat, cabang.alamatCabang)
+        holder.tvNoHpCabang.text = appContext.getString(R.string.card_nohp, cabang.nohpCabang)
 
         holder.cvCARD_CABANG.setOnClickListener {
             val intent = Intent(appContext, TambahCabang::class.java)
-            intent.putExtra("judul", "Edit Cabang")
+            intent.putExtra("judul", appContext.getString(R.string.editcabang))
             intent.putExtra("idCabang", cabang.idCabang)
             intent.putExtra("namaCabang", cabang.namaCabang)
             intent.putExtra("alamatCabang", cabang.alamatCabang)
@@ -52,7 +52,7 @@ class DataCabangAdapter(
         }
         holder.bEdit.setOnClickListener {
             val intent = Intent(appContext, TambahCabang::class.java)
-            intent.putExtra("judul", "Edit Cabang")
+            intent.putExtra("judul", appContext.getString(R.string.editcabang))
             intent.putExtra("idCabang", cabang.idCabang)
             intent.putExtra("namaCabang", cabang.namaCabang)
             intent.putExtra("alamatCabang", cabang.alamatCabang)
@@ -83,7 +83,7 @@ class DataCabangAdapter(
 
             btSunting.setOnClickListener {
                 val intent = Intent(appContext, TambahCabang::class.java)
-                intent.putExtra("judul", "Edit Cabang")
+                intent.putExtra("judul", appContext.getString(R.string.editcabang))
                 intent.putExtra("idCabang", cabang.idCabang)
                 intent.putExtra("namaCabang", cabang.namaCabang)
                 intent.putExtra("alamatCabang", cabang.alamatCabang)
@@ -94,19 +94,19 @@ class DataCabangAdapter(
 
             btHapus.setOnClickListener {
                 AlertDialog.Builder(holder.itemView.context)
-                    .setTitle("Konfirmasi")
-                    .setMessage("Apakah Anda yakin ingin menghapus cabang ini?")
-                    .setPositiveButton("Hapus") { _, _ ->
+                    .setTitle(appContext.getString(R.string.konfirmasi))
+                    .setMessage(appContext.getString(R.string.konfirmasi_hapuscabang))
+                    .setPositiveButton(appContext.getString(R.string.tv_hapus)) { _, _ ->
                         val idCabang = cabang.idCabang
                         if (idCabang.isNullOrEmpty()) {
-                            Toast.makeText(holder.itemView.context, "ID Cabang tidak valid!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(appContext, appContext.getString(R.string.idtidakvalid), Toast.LENGTH_SHORT).show()
                             return@setPositiveButton
                         }
 
                         databaseReference = FirebaseDatabase.getInstance().getReference("cabang")
                         databaseReference.child(idCabang).removeValue()
                             .addOnSuccessListener {
-                                Toast.makeText(holder.itemView.context, "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(appContext, appContext.getString(R.string.databerhasildihapus), Toast.LENGTH_SHORT).show()
                                 if (position != RecyclerView.NO_POSITION && position < listCabang.size) {
                                     listCabang.removeAt(position)
                                     notifyItemRemoved(position)
@@ -114,10 +114,10 @@ class DataCabangAdapter(
                                 dialog.dismiss()
                             }
                             .addOnFailureListener { e ->
-                                Toast.makeText(holder.itemView.context, "Gagal menghapus: ${e.message}", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(appContext, appContext.getString(R.string.gagalhapus) + ": ${e.message}", Toast.LENGTH_SHORT).show()
                             }
                     }
-                    .setNegativeButton("Batal", null)
+                    .setNegativeButton(appContext.getString(R.string.batal), null)
                     .show()
             }
         }

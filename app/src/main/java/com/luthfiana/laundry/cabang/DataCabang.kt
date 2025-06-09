@@ -1,9 +1,12 @@
 package com.luthfiana.laundry.cabang
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,9 +24,12 @@ class DataCabang : AppCompatActivity() {
     private val database = FirebaseDatabase.getInstance()
     private val myRef = database.getReference("cabang")
     private lateinit var rvDataCabang: RecyclerView
+    private lateinit var rvTambahCabang: RecyclerView
     private lateinit var cabangList: ArrayList<ModelCabang>
     private lateinit var adapter: DataCabangAdapter
     private lateinit var fabTambahCabang: FloatingActionButton
+    private lateinit var constraintLayout: ConstraintLayout
+    private var isInAddMode = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,28 +46,76 @@ class DataCabang : AppCompatActivity() {
         }
 
         fabTambahCabang.setOnClickListener {
-            val intent = Intent(this@DataCabang, TambahCabang::class.java)
-            intent.putExtra("judul", this.getString(R.string.tvTambahCabang))
-            intent.putExtra("idCabang", "")
-            intent.putExtra("namaCabang", "")
-            intent.putExtra("alamatCabang", "")
-            intent.putExtra("nohpCabang", "")
-            startActivity(intent)
-             }
+            if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                toggleAddMode()
+            } else {
+                startTambahCabangActivity()
+            }
+        }
+    }
+
+    private fun toggleAddMode() {
+        isInAddMode = !isInAddMode
+
+        val constraintSet = ConstraintSet()
+        constraintSet.clone(constraintLayout)
+
+        if (isInAddMode) {
+            // Mode tambah cabang (landscape)
+            rvTambahCabang.visibility = RecyclerView.VISIBLE
+            // Ubah constraint rvDATA_CABANG ke 50% width
+            constraintSet.connect(
+                R.id.rvDATA_CABANG, ConstraintSet.END,
+                R.id.guidelineVertical, ConstraintSet.START
+            )
+        } else {
+            // Mode normal (landscape)
+            rvTambahCabang.visibility = RecyclerView.GONE
+            // Ubah constraint rvDATA_CABANG ke full width
+            constraintSet.connect(
+                R.id.rvDATA_CABANG, ConstraintSet.END,
+                ConstraintSet.PARENT_ID, ConstraintSet.END
+            )
+        }
+
+        constraintSet.applyTo(constraintLayout)
+    }
+
+    private fun startTambahCabangActivity() {
+        val intent = Intent(this, TambahCabang::class.java).apply {
+            putExtra("judul", getString(R.string.tvTambahCabang))
+            putExtra("idCabang", "")
+            putExtra("namaCabang", "")
+            putExtra("alamatCabang", "")
+            putExtra("nohpCabang", "")
+        }
+        startActivity(intent)
     }
 
     private fun initViews() {
         rvDataCabang = findViewById(R.id.rvDATA_CABANG)
         fabTambahCabang = findViewById(R.id.fabTambahCabang)
+        constraintLayout = findViewById(R.id.main)
+
+        // Hanya inisialisasi jika di landscape
+        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            rvTambahCabang = findViewById(R.id.rvTambahCabang)
+            rvTambahCabang.visibility = RecyclerView.GONE
+        }
     }
 
     private fun setupRecyclerView() {
-        rvDataCabang.layoutManager = LinearLayoutManager(this).apply {
-            reverseLayout = true
-            stackFromEnd = true
-        }
-        rvDataCabang.setHasFixedSize(true)
         cabangList = ArrayList()
+        adapter = DataCabangAdapter(cabangList)
+        rvDataCabang.layoutManager = LinearLayoutManager(this)
+        rvDataCabang.setHasFixedSize(true)
+        rvDataCabang.adapter = adapter
+
+        // Jika di landscape, setup rvTambahCabang
+        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            rvTambahCabang.layoutManager = LinearLayoutManager(this)
+            // Setup adapter untuk rvTambahCabang jika diperlukan
+        }
     }
 
     private fun getData() {
@@ -74,9 +128,9 @@ class DataCabang : AppCompatActivity() {
                         val cabang = childSnapshot.getValue(ModelCabang::class.java)
                         cabang?.let { cabangList.add(it) }
                     }
-                    rvDataCabang.adapter = DataCabangAdapter(cabangList).also {
-                        it.notifyDataSetChanged()
-                    }
+                    cabangList.reverse()
+                    adapter.notifyDataSetChanged()
+                    rvDataCabang.scrollToPosition(0)
                 }
             }
 
@@ -84,5 +138,13 @@ class DataCabang : AppCompatActivity() {
                 Toast.makeText(this@DataCabang, databaseError.message, Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    override fun onBackPressed() {
+        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE && isInAddMode) {
+            toggleAddMode()
+        } else {
+            super.onBackPressed()
+        }
     }
 }

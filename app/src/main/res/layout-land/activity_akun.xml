@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/top_bg"
+    tools:context=".akun.akun">
+
+    <!-- Konten utama dibagi 2 kolom -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Kolom Kiri - Profil -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="20dp">
+
+            <!-- Foto Profil -->
+            <FrameLayout
+                android:id="@+id/img1shadow"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:clipChildren="false"
+                android:clipToPadding="false">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardCornerRadius="100dp"
+                    app:cardElevation="5dp"
+                    app:cardBackgroundColor="@android:color/white"
+                    android:clipChildren="true"
+                    android:clipToPadding="true"
+                    app:cardPreventCornerOverlap="false"
+                    app:cardUseCompatPadding="true">
+
+                    <ImageView
+                        android:id="@+id/imgProfile"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/blank_pfp" />
+                </androidx.cardview.widget.CardView>
+
+                <ImageView
+                    android:id="@+id/bChangePhoto"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="8dp"
+                    android:padding="6dp"
+                    android:background="@drawable/bg_circle_white"
+                    android:src="@drawable/ic_camera"
+                    android:contentDescription="Ganti Foto"
+                    android:elevation="6dp"/>
+            </FrameLayout>
+
+            <!-- Nama dan Jabatan -->
+            <TextView
+                android:id="@+id/tvNamaUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/nama"
+                android:textColor="@color/blackwhite"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tvPegawai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/poppins"
+                android:text="Pegawai"
+                android:textColor="@color/blackwhite"
+                android:textSize="18dp" />
+
+            <!-- Tombol Edit Profil -->
+            <Button
+                android:id="@+id/bEditProfile"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/button"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Edit Profile"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Garis pemisah vertikal -->
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#BDBDBD"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- Kolom Kanan - Informasi -->
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="20dp"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Informasi -->
+                <TextView
+                    android:id="@+id/tvInformasi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="@string/informasi"
+                    android:textColor="@color/blackwhite"
+                    android:textSize="16dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_informasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:cardBackgroundColor="#F3F3F3"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- ID User -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:padding="5dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp">
+
+                            <ImageView
+                                android:id="@+id/icon_IdUser"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_id" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tvIdUser"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:text="ID User"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:id="@+id/tvIdUser_isi"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="iduser"
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/lineatas1"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:background="#BDBDBD" />
+
+                        <!-- Kata Sandi -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:padding="5dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp">
+
+                            <ImageView
+                                android:id="@+id/icon_katasandi"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/password" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tvKataSandi"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:text="@string/katasandi"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:id="@+id/tvKataSandi_isi"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="password"
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/lineatas2"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:background="#BDBDBD" />
+
+                        <!-- Nomor Telepon -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:padding="5dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp">
+
+                            <ImageView
+                                android:id="@+id/icon_telepon"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_telepon" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tvNoHp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:text="@string/nomortelepon"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:id="@+id/tvNoHp_isi"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="+62"
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/lineatas3"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:background="#BDBDBD" />
+
+                        <!-- Cabang -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:padding="5dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp">
+
+                            <ImageView
+                                android:id="@+id/icon_cabang"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_cabang" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tvCabang"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:text="@string/tv_cabang"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:id="@+id/tvCabang_isi"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="cabangmana"
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Preferensi -->
+                <TextView
+                    android:id="@+id/tvPreferensi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="@string/preferensi"
+                    android:textColor="@color/blackwhite"
+                    android:textSize="16dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_preferensi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:cardBackgroundColor="#F3F3F3"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp">
+
+                        <ImageView
+                            android:id="@+id/icon_Logout"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_logout" />
+
+                        <TextView
+                            android:id="@+id/tvLogout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:fontFamily="@font/poppins_bold"
+                            android:text="@string/keluar"
+                            android:textColor="@color/red"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

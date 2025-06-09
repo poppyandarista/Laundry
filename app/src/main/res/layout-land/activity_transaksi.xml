@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg"
+    android:background="@drawable/topbg_land"
     tools:context=".transaksi.transaksi">
 
     <androidx.cardview.widget.CardView
@@ -36,7 +36,7 @@
                 android:id="@+id/judultrasaksi_pelanggan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Data Pelanggan"
+                android:text="@string/datapelanggan"
 
                 android:fontFamily="@font/poppins_bold"
                 android:textSize="20sp"
@@ -47,7 +47,7 @@
                 android:id="@+id/namapelanggan_transaksi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama Pelanggan:"
+                android:text="@string/tvNamapelanggan_titikdua"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/blackwhite"
                 android:fontFamily="@font/poppins"
@@ -58,7 +58,7 @@
                 android:id="@+id/nohp_transaksi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="No HP:"
+                android:text="@string/tvNoHp_titikdua"
 
                 android:textColor="@color/blackwhite"
                 android:layout_marginTop="5dp"
@@ -69,7 +69,7 @@
                 android:id="@+id/bPilihPelanggan"
                 android:layout_width="300dp"
                 android:layout_height="match_parent"
-                android:text="Pilih Pelanggan"
+                android:text="@string/pilihpelanggan"
                 android:fontFamily="@font/poppins_bold"
                 android:backgroundTint="#55DED7"
                 android:textColor="@color/white"
@@ -81,7 +81,7 @@
                 android:id="@+id/judultrasaksi_layanan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Layanan Utama"
+                android:text="@string/layananutama"
                 android:fontFamily="@font/poppins_bold"
                 android:textSize="20sp"
                 android:layout_marginTop="10dp"
@@ -92,7 +92,7 @@
                 android:id="@+id/namalayanan_transaksi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama Layanan:"
+                android:text="@string/tvNamalayanan_titikdua"
 
                 android:textColor="@color/blackwhite"
                 android:layout_marginTop="5dp"
@@ -104,7 +104,7 @@
                 android:id="@+id/harga_transaksi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Harga:"
+                android:text="@string/tvHarga_titikdua"
                 android:layout_marginTop="5dp"
 
                 android:textColor="@color/blackwhite"
@@ -115,7 +115,7 @@
                 android:id="@+id/bPilihLayanan"
                 android:layout_width="300dp"
                 android:layout_height="match_parent"
-                android:text="Pilih Layanan"
+                android:text="@string/pilihlayanan"
                 android:fontFamily="@font/poppins_bold"
                 android:backgroundTint="#1A5DB5"
                 android:textColor="@color/white"
@@ -132,11 +132,11 @@
                 android:id="@+id/judultrasaksi_layanantambahan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Layanan Tambahan"
+                android:text="@string/layanantambahann"
                 android:fontFamily="@font/poppins_bold"
                 android:textSize="20sp"
                 android:layout_marginTop="10dp"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="30dp"
                 android:textColor="@color/blackwhite" />
 
     <androidx.core.widget.NestedScrollView
@@ -164,14 +164,14 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="0dp">
 
             <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:id="@+id/bTambahan"
-                android:text="Tambahan"
+                android:text="@string/tambahan"
                 android:layout_marginStart="35dp"
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="5dp"
@@ -184,7 +184,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:id="@+id/bProses"
-                android:text="Proses"
+                android:text="@string/proses"
                 android:layout_marginEnd="20dp"
                 android:layout_marginStart="5dp"
                 android:textColor="@color/white"

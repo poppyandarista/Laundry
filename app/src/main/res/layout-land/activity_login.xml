@@ -1,134 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg">
+    android:orientation="horizontal"
+    tools:context=".login.Login">
 
-    <ImageView
-        android:id="@+id/topBg"
-        android:layout_width="350dp"
-        android:layout_height="match_parent"
-        android:src="@drawable/topbg_land"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+    <!-- BAGIAN KIRI: Logo dan Nama Laundry dengan Gradient -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="40dp"
+        android:layout_height="450dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_gradient_full">
 
-    <LinearLayout
-        android:id="@+id/container"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <LinearLayout
-            android:id="@+id/linearkiri"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.65"
-            android:orientation="vertical"
-            android:padding="4dp">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/img1shadow"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:cardCornerRadius="100dp"
+            app:cardElevation="10dp"
+            android:layout_marginTop="80dp"
+            app:cardBackgroundColor="@android:color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <ImageView
-                android:id="@+id/ivLogo"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:src="@drawable/akun"
-                android:layout_marginStart="95dp"
-                android:contentDescription="Logo"
-                android:layout_marginTop="40dp"/>
-            <TextView
-                android:id="@+id/tvSelamatDatang"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Selamat Datang"
-                android:textColor="@color/white"
-                android:fontFamily="@font/poppins_bold"
-                android:textSize="22sp"
-                android:layout_marginStart="65dp"
-                android:layout_marginTop="16dp"/>
-
-            <TextView
-                android:id="@+id/tvSilakanLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="35dp"
-                android:text="Silakan login untuk melanjutkan"
-                android:textColor="@color/white"
-                android:fontFamily="@font/poppins"
-                android:textSize="16sp"
-                android:layout_marginTop="8dp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearkanan"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-
-            android:padding="24dp">
-
-            <TextView
-                android:id="@+id/tvNoHp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="No HP"
-                android:textColor="@color/blackwhite"
-                android:fontFamily="@font/poppins_bold"
-                android:textSize="16sp"
-                android:layout_marginBottom="4dp"/>
-
-            <EditText
-                android:id="@+id/etNoHp"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:hint="No HP"
-                android:inputType="phone"
-                android:fontFamily="@font/poppins"
-                android:textColorHint="#bbbbbb"
-                android:background="@drawable/border_editor"
-                android:paddingStart="10dp"
-                android:layout_marginBottom="16dp"/>
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/logolaundry" />
+        </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/tvPassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Password"
-                android:textColor="@color/blackwhite"
-                android:fontFamily="@font/poppins_bold"
-                android:textSize="16sp"
-                android:layout_marginBottom="4dp"/>
+        <TextView
+            android:id="@+id/tvNamaLaundry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="La-Laundry"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintTop_toBottomOf="@id/img1shadow"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- BAGIAN KANAN: Form Login dengan Background Putih -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:layout_marginTop="-20dp"
+        android:background="@drawable/bg_putih">
+
+        <TextView
+            android:id="@+id/tvWelcomeBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/selamatdatangkembali"
+            android:textColor="@color/blackwhite"
+            android:textSize="22sp"
+            android:layout_marginTop="28dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tvMasukkan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/masukkannomor_login"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/blackwhite"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/tvWelcomeBack"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/tvNoHp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nomortelepon"
+            android:textColor="@color/blackwhite"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/poppins"
+            app:layout_constraintTop_toBottomOf="@id/tvMasukkan"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/etNohp"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:hint="@string/nomortelepon"
+            android:textColorHint="#bbbbbb"
+            android:inputType="phone"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/black"
+            android:background="@drawable/border_editor"
+            android:paddingStart="10dp"
+            app:layout_constraintTop_toBottomOf="@id/tvNoHp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"/>
+
+        <TextView
+            android:id="@+id/tvKataSandi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/katasandi"
+            android:textColor="@color/blackwhite"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/poppins"
+            app:layout_constraintTop_toBottomOf="@id/etNohp"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <RelativeLayout
+            android:id="@+id/rlKataSandi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintTop_toBottomOf="@id/tvKataSandi"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <EditText
-                android:id="@+id/etPassword"
+                android:id="@+id/etKataSandi"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:fontFamily="@font/poppins"
-                android:textColorHint="#bbbbbb"
-                android:background="@drawable/border_editor"
                 android:paddingStart="10dp"
-                android:layout_marginBottom="24dp"/>
+                android:textColor="@color/black"
+                android:textColorHint="#bbbbbb"
+                android:background="@drawable/border_editor" />
 
-            <Button
-                android:id="@+id/bLogin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="LOGIN"
-                android:fontFamily="@font/poppins_bold"
-                android:textColor="@color/white"
-                android:backgroundTint="@color/button"
-                android:padding="12dp"/>
-        </LinearLayout>
+            <ImageView
+                android:id="@+id/ivTogglePassword"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/eye" />
+        </RelativeLayout>
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/bMasuk"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:text="@string/masuk"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/button"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/rlKataSandi"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="15dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tvbelumpunyaakun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/belummemilikiakun"
+            android:textColor="@color/blackwhite"
+            android:fontFamily="@font/poppins"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/bMasuk"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="12dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

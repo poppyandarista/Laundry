@@ -31,7 +31,7 @@
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
                     android:paddingEnd="10dp"
-                    android:text="Detail Tambahan"
+                    android:text="@string/detailtambahan"
                     android:textColor="@color/blackwhite"
                     android:textAppearance="@style/TextAppearance.AppCompat.Title"
                     android:fontFamily="@font/poppins_bold">
@@ -57,7 +57,7 @@
                         android:gravity="start"
                         android:textColor="@color/blackwhite"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="ID Tambahan"/>
+                        android:text="@string/idtambahan"/>
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -68,7 +68,7 @@
                         android:layout_marginTop="3dp"
                         android:gravity="end"
                         android:textColor="@color/blackwhite"
-                        android:text="ID Tambahan"
+                        android:text="@string/idtambahan"
                         android:fontFamily="@font/poppins"
                         android:layout_marginBottom="3dp"
                         android:layout_weight="0.65"/>
@@ -92,7 +92,7 @@
                         android:textColor="@color/blackwhite"
                         android:textSize="13sp"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="Layanan Tambahan"/>
+                        android:text="@string/layanantambahann"/>
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -103,7 +103,7 @@
                         android:layout_marginTop="3dp"
                         android:gravity="end"
                         android:textColor="@color/blackwhite"
-                        android:text="Layanan Tambahan"
+                        android:text="@string/layanantambahann"
                         android:fontFamily="@font/poppins"
                         android:layout_marginBottom="3dp"
                         android:layout_weight="0.65"/>
@@ -128,7 +128,7 @@
                         android:gravity="start"
                         android:textSize="13sp"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="Harga"/>
+                        android:text="@string/card_tambahan_harga"/>
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -140,7 +140,7 @@
                         android:layout_marginTop="3dp"
                         android:gravity="end"
                         android:textColor="@color/blackwhite"
-                        android:text="Harga"
+                        android:text="@string/card_tambahan_harga"
                         android:layout_marginBottom="3dp"
                         android:layout_weight="0.65"/>
                 </LinearLayout>
@@ -163,7 +163,7 @@
                         android:textSize="13sp"
                         android:fontFamily="@font/poppins_bold"
                         android:textColor="@color/blackwhite"
-                        android:text="Nama Cabang"/>
+                        android:text="@string/nama_cabang"/>
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -174,44 +174,8 @@
                         android:layout_marginTop="3dp"
                         android:fontFamily="@font/poppins"
                         android:gravity="end"
-                        android:text="Nama Cabang"
+                        android:text="@string/nama_cabang"
                         android:textColor="@color/blackwhite"
-                        android:layout_marginBottom="3dp"
-                        android:layout_weight="0.65"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:background="@color/bgtransparant"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:textColor="@color/blackwhite"
-                        android:id="@+id/tvDIALOG_MOD_TAMBAHAN_STATUSJudul"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_marginTop="3dp"
-                        android:layout_marginBottom="3dp"
-                        android:layout_weight="1"
-                        android:gravity="start"
-                        android:textSize="13sp"
-                        android:fontFamily="@font/poppins_bold"
-                        android:text="Status"/>
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:id="@+id/tvDIALOG_MOD_TAMBAHAN_ISI_Status"
-                        android:layout_marginStart="5dp"
-                        android:fontFamily="@font/poppins"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginTop="3dp"
-                        android:gravity="end"
-                        android:textColor="@color/blackwhite"
-                        android:text="Status"
                         android:layout_marginBottom="3dp"
                         android:layout_weight="0.65"/>
                 </LinearLayout>
@@ -231,6 +195,7 @@
                         android:layout_marginEnd="8dp"
                         android:backgroundTint="@color/button"
                         android:text="@string/sunting"
+                        android:textColor="@color/white"
                         android:fontFamily="@font/poppins_bold"
                         app:icon="@drawable/baseline_edit_square_24"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -246,6 +211,7 @@
                         android:backgroundTint="@color/button"
                         android:fontFamily="@font/poppins_bold"
                         android:text="@string/tv_hapus"
+                        android:textColor="@color/white"
                         app:icon="@drawable/baseline_delete_24"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent  "

@@ -73,15 +73,15 @@ class tambah_pegawai : AppCompatActivity() {
         etNohp.setText(nohp)
         etNamaCabang.setText(namaCabang)
 
-        if (!tvTambahPegawai.text.equals(this.getString(R.string.tv_tambah_pegawai))){
-            if(judul.equals("Edit Pegawai")){
-                mati()
-                bSimpan.text="Sunting"
-            }
-        }else{
+        if (!tvTambahPegawai.text.equals(this.getString(R.string.tv_tambah_pegawai))) {
+            if (judul.equals(this.getString(R.string.editpegawai))) {
+                    mati()
+                    bSimpan.text = this.getString(R.string.sunting)
+                }
+            } else {
             hidup()
             etNama.requestFocus()
-            bSimpan.text="Simpan"
+            bSimpan.text = this.getString(R.string.simpan)
         }
 
         myRef.addValueEventListener(object : ValueEventListener {
@@ -135,12 +135,12 @@ class tambah_pegawai : AppCompatActivity() {
             return false
         }
 
-        if (bSimpan.text == "Simpan") {
+        if (bSimpan.text == this.getString(R.string.simpan)) {
             simpan()
-        } else if (bSimpan.text == "Sunting") {
+        } else if (bSimpan.text == this.getString(R.string.sunting)) {
             hidup()
-            bSimpan.text = "Perbarui"
-        } else if (bSimpan.text == "Perbarui") {
+            bSimpan.text = this.getString(R.string.perbarui)
+        } else if (bSimpan.text == this.getString(R.string.perbarui)) {
             update()
         }
         return true
@@ -193,7 +193,6 @@ class tambah_pegawai : AppCompatActivity() {
 
 
     fun simpan() {
-        if (bSimpan.text.equals(this.getString(R.string.bsimpan))){
         val pegawaiBaru = myRef.push()
         val pegawaiId = pegawaiBaru.key ?: return
 
@@ -216,7 +215,6 @@ class tambah_pegawai : AppCompatActivity() {
             .addOnFailureListener {
                 Toast.makeText(this, this.getString(R.string.gagal_simpan_pegawai), Toast.LENGTH_SHORT).show()
             }
-        }
 
     }
 

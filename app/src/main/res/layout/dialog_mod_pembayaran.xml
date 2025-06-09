@@ -31,7 +31,7 @@
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
                     android:paddingEnd="10dp"
-                    android:text="Pembayaran"
+                    android:text="@string/pembayaran"
                     android:textSize="18sp"
                     android:textColor="@color/blackwhite"
                     android:textAppearance="@style/TextAppearance.AppCompat.Title"
@@ -40,10 +40,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pilih Metode Pembayaran"
+                    android:text="@string/pilihmetodepembayaran"
                     android:fontFamily="@font/poppins_bold"
                     android:layout_gravity="center_horizontal"
                     android:textSize="20sp"
+                    android:textColor="@color/blackwhite"
                     android:layout_marginTop="8dp"/>
 
                 <View
@@ -60,7 +61,8 @@
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="Bayar Nanti"
+                    android:text="@string/bayarnanti"
+                    android:textColor="@color/white"
                     android:backgroundTint="#D60202"
                     android:layout_marginTop="5dp"
                     android:layout_marginStart="34dp"
@@ -72,7 +74,8 @@
                     android:layout_height="50dp"
                     android:backgroundTint="#FFAC02"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="Tunai"
+                    android:text="@string/tunai"
+                    android:textColor="@color/white"
                     android:layout_marginTop="5dp"
                     android:layout_marginStart="34dp"
                     android:layout_marginEnd="80dp"/>
@@ -83,6 +86,7 @@
                     android:layout_height="50dp"
                     android:fontFamily="@font/poppins_bold"
                     android:text="QRIS"
+                    android:textColor="@color/white"
                     android:backgroundTint="#FE6E02"
                     android:layout_marginTop="5dp"
                     android:layout_marginStart="34dp"
@@ -94,6 +98,7 @@
                     android:layout_height="50dp"
                     android:fontFamily="@font/poppins_bold"
                     android:text="DANA"
+                    android:textColor="@color/white"
                     android:backgroundTint="#02BAD5"
                     android:layout_marginTop="5dp"
                     android:layout_marginStart="34dp"
@@ -106,6 +111,7 @@
                     android:fontFamily="@font/poppins_bold"
                     android:text="GoPay"
                     android:backgroundTint="#03C854"
+                    android:textColor="@color/white"
                     android:layout_marginTop="5dp"
                     android:layout_marginStart="34dp"
                     android:layout_marginEnd="80dp"/>
@@ -118,6 +124,7 @@
                 android:fontFamily="@font/poppins_bold"
                 android:text="OVO"
                 android:layout_marginTop="5dp"
+                    android:textColor="@color/white"
                 android:layout_marginStart="34dp"
                 android:layout_marginEnd="80dp"/>
 
@@ -129,10 +136,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Batal"
+                android:text="@string/batal"
                 android:id="@+id/tvBatal"
                 android:fontFamily="@font/poppins_bold"
                 android:textSize="16sp"
+                android:textColor="@color/blackwhite"
                 android:layout_marginEnd="20dp"
                 android:layout_marginTop="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"

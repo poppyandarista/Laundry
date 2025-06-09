@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/top_bg"
+    tools:context=".akun.EditProfile">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvEditProfil"
+        android:fontFamily="@font/poppins"
+        android:text="Edit Profile"
+        android:textSize="20dp"
+        android:textColor="@color/blackwhite"
+        android:layout_marginTop="35dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <FrameLayout
+        android:id="@+id/img1shadow"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvEditProfil"
+        android:clipChildren="false"
+        android:clipToPadding="false">
+
+        <!-- CardView Foto Profil -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="100dp"
+            app:cardElevation="5dp"
+            app:cardBackgroundColor="@android:color/white"
+            android:clipChildren="true"
+            android:clipToPadding="true"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="true"
+            >
+
+            <ImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/blank_pfp" />
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/bChangePhoto"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="8dp"
+            android:padding="6dp"
+            android:background="@drawable/bg_circle_white"
+            android:src="@drawable/ic_camera"
+            android:contentDescription="Ganti Foto"
+            android:elevation="6dp"/>
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvNama"
+        android:text="@string/nama"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/blackwhite"
+        android:textSize="16sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img1shadow"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="@string/nama"
+        android:textColorHint="#bbbbbb"
+        android:fontFamily="@font/poppins"
+        android:id="@+id/etNama"
+        android:textColor="@color/black"
+        android:paddingStart="10dp"
+        android:background="@drawable/border_editor"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@id/tvNama"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvNoHp"
+        android:text="@string/nomortelepon"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/blackwhite"
+        android:textSize="16sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etNama"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="@string/nomortelepon"
+        android:textColorHint="#bbbbbb"
+        android:fontFamily="@font/poppins"
+        android:id="@+id/etNohp"
+        android:textColor="@color/black"
+        android:paddingStart="10dp"
+        android:background="@drawable/border_editor"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@id/tvNoHp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvKataSandi"
+        android:text="@string/katasandi"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/blackwhite"
+        android:textSize="16sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etNohp"/>
+
+    <RelativeLayout
+        android:id="@+id/rlKataSandi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@id/tvKataSandi">
+
+        <EditText
+            android:id="@+id/etKataSandi"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="@string/katasandi"
+            android:inputType="textPassword"
+            android:fontFamily="@font/poppins"
+            android:paddingStart="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="#bbbbbb"
+            android:background="@drawable/border_editor" />
+
+        <ImageView
+            android:id="@+id/ivTogglePassword"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/eye"
+            android:contentDescription="Toggle Password Visibility" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvCabang"
+        android:text="@string/tv_cabang"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/blackwhite"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rlKataSandi"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="@string/tv_cabang"
+        android:textColorHint="#bbbbbb"
+        android:fontFamily="@font/poppins"
+        android:id="@+id/etCabang"
+        android:textColor="@color/black"
+        android:paddingStart="10dp"
+        android:background="@drawable/border_editor"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@id/tvCabang"/>
+
+    <Button
+        android:id="@+id/bSimpanPerubahan"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:text="Simpan Perubahan"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/button"
+        android:fontFamily="@font/poppins_bold"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/etCabang"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

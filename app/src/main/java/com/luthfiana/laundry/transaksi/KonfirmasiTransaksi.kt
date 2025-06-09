@@ -14,10 +14,16 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.FirebaseDatabase
 import com.luthfiana.laundry.R
 import com.luthfiana.laundry.adapter.PilihTambahanAdapter
+import com.luthfiana.laundry.laporan.DataLaporan
 import com.luthfiana.laundry.modeldata.ModelTambahan
+import org.json.JSONArray
+import org.json.JSONObject
 import java.text.NumberFormat
+import java.text.SimpleDateFormat
+import java.util.Date
 import java.util.Locale
 
 class KonfirmasiTransaksi : AppCompatActivity() {
@@ -59,7 +65,7 @@ class KonfirmasiTransaksi : AppCompatActivity() {
         tvNamaPelanggan = findViewById(R.id.namapelanggan_konfirmasi)
         tvNoHp = findViewById(R.id.nohp_konfirmasi)
         tvNamaLayanan = findViewById(R.id.namalayanan_konfirmasi)
-        tvHargaLayanan = findViewById(R.id.harga_konfirmas)
+        tvHargaLayanan = findViewById(R.id.harga_konfirmasi)
         tvTotalBayar = findViewById(R.id.tv_totalbayar_konfirmasi)
         rvKonfirmasiData = findViewById(R.id.rvKonfirmasiData)
         bBatal = findViewById(R.id.bBatal)
@@ -140,48 +146,123 @@ class KonfirmasiTransaksi : AppCompatActivity() {
         // Set listener untuk setiap metode pembayaran
         bBayarNanti.setOnClickListener {
             processPayment("Bayar Nanti")
-            dialog.dismiss()
         }
 
         bTunai.setOnClickListener {
             processPayment("Tunai")
-            dialog.dismiss()
         }
 
         bQRIS.setOnClickListener {
             processPayment("QRIS")
-            dialog.dismiss()
         }
 
         bDana.setOnClickListener {
             processPayment("DANA")
-            dialog.dismiss()
         }
 
         bGopay.setOnClickListener {
             processPayment("GoPay")
-            dialog.dismiss()
         }
 
         bOVO.setOnClickListener {
             processPayment("OVO")
+        }
+        val tvBatalDialog = dialog.findViewById<TextView>(R.id.tvBatal)
+        tvBatalDialog.setOnClickListener {
             dialog.dismiss()
         }
-
-
-
         dialog.show()
     }
 
     private fun processPayment(method: String) {
-        // Lakukan proses pembayaran sesuai metode yang dipilih
-        Toast.makeText(this, "Memproses pembayaran via $method", Toast.LENGTH_SHORT).show()
+        val tanggalTransaksi = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(Date())
+        val statusPembayaran = if (method == "Bayar Nanti") "Belum Dibayar" else "Sudah Dibayar"
 
-        // Di sini Anda bisa:
-        // 1. Simpan data transaksi ke database
-        // 2. Tampilkan struk/resi
-        // 3. Kembali ke halaman utama
+        // Hitung total tambahan
+        val totalTambahan = tambahanList.sumOf { it.hargaTambahan?.toIntOrNull() ?: 0 }
+        val hargaUtama = intent.getStringExtra("hargaLayanan")?.toIntOrNull() ?: 0
+        val totalBayar = hargaUtama + totalTambahan
+
+        // Buat ID unik untuk transaksi
+        val idTransaksi = "TRX-${System.currentTimeMillis()}"
+
+        // Buat objek data untuk Firebase
+        val laporanData = hashMapOf<String, Any>(
+            "idTransaksi" to idTransaksi,
+            "namaPelanggan" to (tvNamaPelanggan.text.toString()),
+            "noHpPelanggan" to (tvNoHp.text.toString()),
+            "namaLayanan" to (intent.getStringExtra("namaLayanan") ?: "-"),
+            "hargaLayanan" to (intent.getStringExtra("hargaLayanan") ?: "0"),
+            "totalTambahan" to tambahanList.size.toString(),
+            "totalBayar" to totalBayar.toString(),
+            "metodePembayaran" to method,
+            "statusPembayaran" to statusPembayaran,
+            "tanggalTransaksi" to tanggalTransaksi
+        )
+
+        // Simpan ke Firebase
+        val database = FirebaseDatabase.getInstance()
+        val reference = database.getReference("laporan").child(idTransaksi)
+        reference.setValue(laporanData)
+            .addOnSuccessListener {
+                Toast.makeText(this, getString(R.string.toast_transaksiberhasil), Toast.LENGTH_SHORT).show()
+
+                // Lanjutkan ke intent berikutnya
+                val notaIntent = Intent(this, NotaTransaksi::class.java).apply {
+                    putExtra("idTransaksi", idTransaksi)
+                    putExtra("namaPelanggan", tvNamaPelanggan.text.toString())
+                    putExtra("nohpPelanggan", tvNoHp.text.toString())
+                    putExtra("namaLayanan", intent.getStringExtra("namaLayanan") ?: "-")
+                    putExtra("hargaLayanan", intent.getStringExtra("hargaLayanan") ?: "0")
+                    putExtra("totalTambahan", totalTambahan.toString())
+                    putExtra("totalBayar", totalBayar.toString())
+                    putExtra("metodePembayaran", method)
+                    putExtra("statusPembayaran", statusPembayaran)
+                    putExtra("tanggalTransaksi", tanggalTransaksi)
+                    if (tambahanList.isNotEmpty()) {
+                        putExtra("layananTambahan", ArrayList(tambahanList))
+                    }
+                }
+
+                startActivity(notaIntent)
+                finish()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, getString(R.string.toast_transaksigagal), Toast.LENGTH_SHORT).show()
+            }
     }
 
+
+    private fun saveToLaporan(method: String) {
+        val sharedPref = getSharedPreferences("data_laporan", MODE_PRIVATE)
+        val existingData = sharedPref.getString("laporan", "[]") ?: "[]"
+        val jsonArray = JSONArray(existingData)
+
+        val idTransaksi = "TRX-${System.currentTimeMillis().toString().takeLast(6)}"
+        val tanggalTransaksi = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(
+            Date()
+        )
+
+        // Hitung total
+        val hargaUtama = intent.getStringExtra("hargaLayanan")?.toIntOrNull() ?: 0
+        val totalTambahan = tambahanList.sumOf { it.hargaTambahan?.toIntOrNull() ?: 0 }
+        val totalBayar = hargaUtama + totalTambahan
+
+        val newLaporan = JSONObject().apply {
+            put("idTransaksi", idTransaksi)
+            put("namaPelanggan", tvNamaPelanggan.text.toString())
+            put("noHpPelanggan", tvNoHp.text.toString())
+            put("namaLayanan", intent.getStringExtra("namaLayanan") ?: "-")
+            put("hargaLayanan", intent.getStringExtra("hargaLayanan") ?: "0")
+            put("totalBayar", totalBayar.toString())
+            put("metodePembayaran", method)
+            put("statusPembayaran", "Belum Dibayar")
+            put("tanggalTransaksi", tanggalTransaksi)
+        }
+
+        jsonArray.put(newLaporan)
+
+        sharedPref.edit().putString("laporan", jsonArray.toString()).apply()
+    }
 
 }

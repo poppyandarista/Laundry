@@ -31,7 +31,7 @@
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
                     android:paddingEnd="10dp"
-                    android:text="Detail Cabang"
+                    android:text="@string/detailcabang"
                     android:textColor="@color/blackwhite"
                     android:textAppearance="@style/TextAppearance.AppCompat.Title"
                     android:fontFamily="@font/poppins_bold">
@@ -57,7 +57,7 @@
                         android:gravity="start"
                         android:textColor="@color/blackwhite"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="ID Cabang"/>
+                        android:text="@string/idcabang"/>
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -92,7 +92,7 @@
                         android:textColor="@color/blackwhite"
                         android:textSize="13sp"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="Nama Cabang"/>
+                        android:text="@string/nama_cabang"/>
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -124,11 +124,11 @@
                         android:layout_marginEnd="5dp"
                         android:layout_marginTop="3dp"
                         android:layout_marginBottom="3dp"
-                        android:layout_weight="1"
+                        android:layout_weight="0.80"
                         android:gravity="start"
                         android:textSize="13sp"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="Alamat Cabang"/>
+                        android:text="@string/tvAlamatCabang"/>
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -158,12 +158,12 @@
                         android:layout_marginEnd="5dp"
                         android:layout_marginTop="3dp"
                         android:layout_marginBottom="3dp"
-                        android:layout_weight="1"
+                        android:layout_weight="0.50"
                         android:gravity="start"
                         android:textSize="13sp"
                         android:fontFamily="@font/poppins_bold"
                         android:textColor="@color/blackwhite"
-                        android:text="No HP Cabang"/>
+                        android:text="@string/tvNoHpCabang"/>
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -195,6 +195,7 @@
                         android:layout_marginEnd="8dp"
                         android:backgroundTint="@color/button"
                         android:text="@string/sunting"
+                        android:textColor="@color/white"
                         android:fontFamily="@font/poppins_bold"
                         app:icon="@drawable/baseline_edit_square_24"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -210,6 +211,7 @@
                         android:backgroundTint="@color/button"
                         android:fontFamily="@font/poppins_bold"
                         android:text="@string/tv_hapus"
+                        android:textColor="@color/white"
                         app:icon="@drawable/baseline_delete_24"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent  "

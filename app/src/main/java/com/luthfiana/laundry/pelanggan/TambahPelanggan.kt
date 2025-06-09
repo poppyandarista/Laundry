@@ -193,7 +193,6 @@ class TambahPelanggan : AppCompatActivity() {
         }
 
         fun simpan() {
-            if (bSimpan.text.equals(this.getString(R.string.bsimpan))){
             val pelangganBaru = myRef.push()
             val pelangganId = pelangganBaru.key ?: return
 
@@ -216,7 +215,6 @@ class TambahPelanggan : AppCompatActivity() {
                 .addOnFailureListener {
                     Toast.makeText(this, this.getString(R.string.gagal_simpan_pelanggan), Toast.LENGTH_SHORT).show()
                 }
-        }
         }
 
 

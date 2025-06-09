@@ -53,7 +53,7 @@ class PilihTambahanAdapter(
         val item = listTambahan[position]
         holder.tvIdTambahan.text = "[$nomor]"
         holder.tvNamaTambahan.text = item.namaLayananTambahan
-        holder.tvHargaTambahan.text = "Harga: ${item.hargaTambahan}"
+        holder.tvHargaTambahan.text = appContext.getString(R.string.tvHarga_titikdua) + " " + item.hargaTambahan
 
         // Tampilkan icon delete hanya di Transaksi Activity
         if (appContext is transaksi) {

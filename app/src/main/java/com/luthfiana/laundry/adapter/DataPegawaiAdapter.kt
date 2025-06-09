@@ -36,16 +36,16 @@ class DataPegawaiAdapter(
         val pegawai = listPegawai[position]
         databaseReference = FirebaseDatabase.getInstance().getReference("Pegawai")
 
-        holder.tvAlamat.text = "Alamat: ${pegawai.alamatPegawai}"
+        holder.tvAlamat.text = appContext.getString(R.string.card_alamat, pegawai.alamatPegawai)
         holder.tvIdPegawai.text = pegawai.idPegawai
         holder.tvNamaPegawai.text = pegawai.namaPegawai
-        holder.tvNoHpPegawai.text = "No HP: ${pegawai.nohpPegawai}"
-        holder.tvTerdaftar.text = "Terdaftar: ${pegawai.terdaftar}"
-        holder.tvCabang.text = "Cabang: ${pegawai.idCabang}"
+        holder.tvNoHpPegawai.text = appContext.getString(R.string.card_nohp, pegawai.nohpPegawai)
+        holder.tvTerdaftar.text = appContext.getString(R.string.card_terdaftar, pegawai.terdaftar)
+        holder.tvCabang.text = appContext.getString(R.string.card_cabangg, pegawai.idCabang)
 
         holder.cvCARD_PEGAWAI.setOnClickListener {
             val intent = Intent(appContext, tambah_pegawai::class.java)
-            intent.putExtra("judul", "Edit Pegawai")
+            intent.putExtra("judul", appContext.getString(R.string.editpegawai))
             intent.putExtra("idPegawai", pegawai.idPegawai)
             intent.putExtra("namaPegawai", pegawai.namaPegawai)
             intent.putExtra("nohpPegawai", pegawai.nohpPegawai)
@@ -104,7 +104,7 @@ class DataPegawaiAdapter(
 
             btSunting.setOnClickListener {
                 val intent = Intent(appContext, tambah_pegawai::class.java)
-                intent.putExtra("judul", "Edit Pegawai")
+                intent.putExtra("judul", appContext.getString(R.string.editpegawai))
                 intent.putExtra("idPegawai", pegawai.idPegawai)
                 intent.putExtra("namaPegawai", pegawai.namaPegawai)
                 intent.putExtra("idCabang", pegawai.idCabang)
@@ -115,20 +115,22 @@ class DataPegawaiAdapter(
             }
 
             btHapus.setOnClickListener {
-                AlertDialog.Builder(holder.itemView.context)
-                    .setTitle("Konfirmasi")
-                    .setMessage("Apakah Anda yakin ingin menghapus pelanggan ini?")
-                    .setPositiveButton("Hapus") { _, _ ->
+                val context = holder.itemView.context
+
+                AlertDialog.Builder(context)
+                    .setTitle(context.getString(R.string.konfirmasi))
+                    .setMessage(context.getString(R.string.konfirmasi_hapuspelanggan))
+                    .setPositiveButton(context.getString(R.string.tv_hapus)) { _, _ ->
                         val idPegawai = pegawai.idPegawai
                         if (idPegawai.isNullOrEmpty()) {
-                            Toast.makeText(holder.itemView.context, "ID Pegawai tidak valid!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, context.getString(R.string.idtidakvalid), Toast.LENGTH_SHORT).show()
                             return@setPositiveButton
                         }
 
                         databaseReference = FirebaseDatabase.getInstance().getReference("pegawai")
                         databaseReference.child(idPegawai).removeValue()
                             .addOnSuccessListener {
-                                Toast.makeText(holder.itemView.context, "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(context, context.getString(R.string.databerhasildihapus), Toast.LENGTH_SHORT).show()
                                 if (position != RecyclerView.NO_POSITION && position < listPegawai.size) {
                                     listPegawai.removeAt(position)
                                     notifyItemRemoved(position)
@@ -136,12 +138,13 @@ class DataPegawaiAdapter(
                                 dialog.dismiss()
                             }
                             .addOnFailureListener { e ->
-                                Toast.makeText(holder.itemView.context, "Gagal menghapus: ${e.message}", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(context, context.getString(R.string.gagalhapus) + ": ${e.message}", Toast.LENGTH_SHORT).show()
                             }
                     }
-                    .setNegativeButton("Batal", null)
+                    .setNegativeButton(context.getString(R.string.batal), null)
                     .show()
             }
+
         }
     }
 

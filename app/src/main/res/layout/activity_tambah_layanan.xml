@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bgtambahactivity"
+    android:background="@drawable/top_bg"
     android:padding="5dp"
     tools:context=".layanan.TambahLayanan">
 
@@ -43,6 +43,7 @@
         android:fontFamily="@font/poppins"
         android:id="@+id/etNamaLayanan"
         android:paddingStart="10dp"
+        android:textColor="@color/black"
         android:background="@drawable/border_editor"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
@@ -68,9 +69,10 @@
         android:hint="@string/card_harga_layanan"
         android:fontFamily="@font/poppins"
         android:textColorHint="#bbbbbb"
-        android:id="@+id/etCabangLayanan"
+        android:id="@+id/etHargaLayanan"
         android:paddingStart="10dp"
         android:inputType="number"
+        android:textColor="@color/black"
         android:background="@drawable/border_editor"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
@@ -88,15 +90,15 @@
         android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etCabangLayanan"/>
+        app:layout_constraintTop_toBottomOf="@id/etHargaLayanan"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:hint="@string/tv_cabang"
-
+        android:textColor="@color/black"
         android:fontFamily="@font/poppins"
-        android:id="@+id/etHargaLayanan"
+        android:id="@+id/etCabangLayanan"
         android:paddingStart="10dp"
         android:background="@drawable/border_editor"
         android:textColorHint="#bbbbbb"
@@ -110,13 +112,15 @@
         android:layout_height="55dp"
         android:id="@+id/bSimpan"
         android:text="@string/bsimpan"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppins_bold"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etHargaLayanan"/>
+        app:layout_constraintTop_toBottomOf="@id/etCabangLayanan"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

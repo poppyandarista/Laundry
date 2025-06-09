@@ -41,8 +41,8 @@ class PilihPelangganAdapter(
 
         holder.tvIdPelanggan.text = "[$nomor]"
         holder.tvNamaPelanggan.text = item.namaPelanggan
-        holder.tvAlamat.text = "Alamat: ${item.alamatPelanggan}"
-        holder.tvNoHpPelanggan.text = "No HP: ${item.nohpPelanggan}"
+        holder.tvAlamat.text = appContext.getString(R.string.alamat_titikdua) + " " + item.alamatPelanggan
+        holder.tvNoHpPelanggan.text = appContext.getString(R.string.tvNoHp_titikdua) + " " + item.nohpPelanggan
 
         holder.cvCardPelanggan.setOnClickListener {
             val intent = Intent()

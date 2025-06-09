@@ -14,6 +14,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.luthfiana.laundry.R
+import com.luthfiana.laundry.adapter.DataPelangganAdapter
 import com.luthfiana.laundry.adapter.DataTambahanAdapter
 import com.luthfiana.laundry.modeldata.ModelTambahan
 
@@ -46,7 +47,6 @@ class DataTambahan : AppCompatActivity() {
             intent.putExtra("namaLayananTambahan", "")
             intent.putExtra("hargaTambahan", "")
             intent.putExtra("namaCabang", "")
-            intent.putExtra("status", "")
             startActivity(intent)
 
         }
@@ -58,12 +58,15 @@ class DataTambahan : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
+        tambahanList = ArrayList()
+        adapter = DataTambahanAdapter(tambahanList)
         rvDataTambahan.layoutManager = LinearLayoutManager(this).apply {
-            reverseLayout = true
-            stackFromEnd = true
+            // Remove these if you want normal order (newest at bottom)
+            // reverseLayout = true
+            // stackFromEnd = true
         }
         rvDataTambahan.setHasFixedSize(true)
-        tambahanList = ArrayList()
+        rvDataTambahan.adapter = adapter
     }
 
     private fun getData() {
@@ -76,10 +79,13 @@ class DataTambahan : AppCompatActivity() {
                         val tambahan = childSnapshot.getValue(ModelTambahan::class.java)
                         tambahan?.let { tambahanList.add(it) }
                     }
-                    rvDataTambahan.adapter = DataTambahanAdapter(tambahanList).also {
-                        it.notifyDataSetChanged()
-                    }
+                    // Reverse the list if you want newest first
+                    tambahanList.reverse()
+                    adapter.notifyDataSetChanged()
+                    // Scroll to top (position 0 is now the newest item)
+                    rvDataTambahan.scrollToPosition(0)
                 }
+
             }
 
             override fun onCancelled(databaseError: DatabaseError) {

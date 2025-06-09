@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".pelanggan.PilihPelanggan"
-    android:background="@color/bg">
+    android:background="@drawable/top_bg">
 
     <TextView
         android:id="@+id/tvPILIH_PELANGGAN_kosong"
@@ -28,7 +28,7 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    android:queryHint="Cari Data Pelanggan"/>
+    android:queryHint="@string/caridatapelanggan"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvDATA_PILIH_PELANGGAN"

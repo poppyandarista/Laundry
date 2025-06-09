@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/top_bg"
     tools:context=".transaksi.KonfirmasiTransaksi">
 
     <!-- CardView Atas -->
@@ -30,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Konfirmasi Data"
+                android:text="@string/konfirmasidata"
                 android:textColor="@color/blackwhite"
                 android:textSize="24sp" />
 
@@ -39,7 +40,8 @@
                 android:id="@+id/namapelanggan_konfirmasi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama Pelanggan"
+                android:text="@string/card_pelanggan_nama_pelanggan"
+                android:textColor="@color/blackwhite"
                 android:fontFamily="@font/poppins_bold"
                 android:textSize="20sp" />
 
@@ -47,7 +49,8 @@
                 android:id="@+id/nohp_konfirmasi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="No HP"
+                android:text="@string/card_pelanggan_nohp"
+                android:textColor="@color/blackwhite"
                 android:fontFamily="@font/poppins"
                 android:textSize="18sp" />
 
@@ -56,17 +59,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Nama Layanan yg dipilih"
+                android:text="@string/namalayanan"
                 android:fontFamily="@font/poppins_bold"
                 android:textSize="20sp"
                 android:textColor="@color/blackwhite" />
 
             <TextView
-                android:id="@+id/harga_konfirmas"
+                android:id="@+id/harga_konfirmasi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Harga Layanan yg dipilih"
                 android:fontFamily="@font/poppins"
+                android:text="@string/harga_layanan"
+                android:textColor="@color/blackwhite"
                 android:textSize="18sp" />
 
             <TextView
@@ -74,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Layanan Tambahan"
+                android:text="@string/layanantambahann"
                 android:textSize="20sp"
                 android:textColor="@color/blackwhite"
                 android:fontFamily="@font/poppins_bold" />
@@ -126,7 +130,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Total Bayar"
+                    android:text="@string/totalbayar"
                     android:textSize="18sp"
                     android:fontFamily="@font/poppins_bold"
                     android:textColor="@color/blackwhite" />
@@ -151,7 +155,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Batal"
+                    android:text="@string/batal"
                     android:layout_marginEnd="5dp"
                     android:backgroundTint="#FEC109"
                     android:textColor="@color/white"
@@ -162,7 +166,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Pembayaran"
+                    android:text="@string/pembayaran"
                     android:layout_marginStart="5dp"
                     android:backgroundTint="#28D368"
                     android:textColor="@color/white"

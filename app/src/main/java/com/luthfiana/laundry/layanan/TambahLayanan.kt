@@ -27,11 +27,11 @@ class TambahLayanan : AppCompatActivity() {
     lateinit var etHargaLayanan: EditText
     lateinit var bSimpan: Button
 
-    var idLayanan: String=""
+    var idLayanan: String = ""
+    var isEditMode: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_tambah_layanan)
 
         init()
@@ -46,7 +46,6 @@ class TambahLayanan : AppCompatActivity() {
         bSimpan.setOnClickListener {
             cekValidasi()
         }
-
     }
 
     fun init() {
@@ -60,26 +59,28 @@ class TambahLayanan : AppCompatActivity() {
     fun getData() {
         idLayanan = intent.getStringExtra("idLayanan").toString()
 
-        val judul = intent.getStringExtra("judul")
         val nama = intent.getStringExtra("namaLayanan")
         val cabang = intent.getStringExtra("namaCabang")
         val harga = intent.getStringExtra("hargaLayanan")
 
-        tvTambahLayanan.text = judul
         etNamaLayanan.setText(nama)
         etCabangLayanan.setText(cabang)
         etHargaLayanan.setText(harga)
 
-        if (!tvTambahLayanan.text.equals(this.getString(R.string.tvTambahLayanan))) {
-            if (judul.equals("Edit Layanan")) {
-                mati()
-                bSimpan.text = "Sunting"
-            }
-        }else{
+        // Check if we're in edit mode by checking if idLayanan is not empty
+        isEditMode = idLayanan.isNotEmpty()
+
+        if (isEditMode) {
+            tvTambahLayanan.text = getString(R.string.editlayanan)
+            mati()
+            bSimpan.text = getString(R.string.sunting)
+        } else {
+            tvTambahLayanan.text = getString(R.string.tvTambahLayanan)
             hidup()
             etNamaLayanan.requestFocus()
-            bSimpan.text="Simpan"
+            bSimpan.text = getString(R.string.simpan)
         }
+
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
@@ -108,103 +109,98 @@ class TambahLayanan : AppCompatActivity() {
 
         if (nama.isEmpty()) {
             etNamaLayanan.error = getString(R.string.card_layanan_namalayanan)
-            Toast.makeText(this, getString(R.string.card_layanan_namalayanan), Toast.LENGTH_SHORT).show()
+            showToast(R.string.card_layanan_namalayanan)
             etNamaLayanan.requestFocus()
             return false
         }
         if (cabang.isEmpty()) {
             etCabangLayanan.error = getString(R.string.nama_cabang)
-            Toast.makeText(this, getString(R.string.nama_cabang), Toast.LENGTH_SHORT).show()
+            showToast(R.string.nama_cabang)
             etCabangLayanan.requestFocus()
             return false
         }
         if (harga.isEmpty()) {
             etHargaLayanan.error = getString(R.string.card_layanan_harga)
-            Toast.makeText(this, getString(R.string.card_layanan_harga), Toast.LENGTH_SHORT).show()
+            showToast(R.string.card_layanan_harga)
             etHargaLayanan.requestFocus()
             return false
         }
-        if (bSimpan.text == "Simpan") {
-            simpan()
-        } else if (bSimpan.text == "Sunting") {
-            hidup()
-            bSimpan.text = "Perbarui"
-        } else if (bSimpan.text == "Perbarui") {
-            update()
+
+        when (bSimpan.text.toString()) {
+            getString(R.string.simpan) -> simpan()
+            getString(R.string.sunting) -> {
+                hidup()
+                bSimpan.text = getString(R.string.perbarui)
+            }
+            getString(R.string.perbarui) -> update()
         }
         return true
     }
 
-    fun mati(){
-        etNamaLayanan.isEnabled=false
-        etCabangLayanan.isEnabled=false
-        etHargaLayanan.isEnabled=false
+    fun mati() {
+        etNamaLayanan.isEnabled = false
+        etCabangLayanan.isEnabled = false
+        etHargaLayanan.isEnabled = false
     }
 
-    fun hidup(){
-        etNamaLayanan.isEnabled=true
-        etCabangLayanan.isEnabled=true
-        etHargaLayanan.isEnabled=true
+    fun hidup() {
+        etNamaLayanan.isEnabled = true
+        etCabangLayanan.isEnabled = true
+        etHargaLayanan.isEnabled = true
     }
 
-    fun update (){
+    fun update() {
         val layananRef = database.getReference("layanan").child(idLayanan)
 
         val data = ModelLayanan(
             idLayanan,
             etNamaLayanan.text.toString(),
             etCabangLayanan.text.toString(),
-            etHargaLayanan.text.toString(),
+            etHargaLayanan.text.toString()
         )
-    val updateData = mapOf(
-        "namaLayanan" to data.namaLayanan,
-        "namaCabang" to data.namaCabang,
-        "hargaLayanan" to data.hargaLayanan
-    )
-    layananRef.updateChildren(updateData)
-        .addOnSuccessListener {
-            Toast.makeText(this, "Data Layanan berhasil diperbarui", Toast.LENGTH_SHORT).show()
-            finish()
-        }
-        .addOnSuccessListener {
-            Toast.makeText(this, "Gagal memperbarui data Layanan", Toast.LENGTH_SHORT).show()
-        }
+
+        val updateData = mapOf(
+            "namaLayanan" to data.namaLayanan,
+            "namaCabang" to data.namaCabang,
+            "hargaLayanan" to data.hargaLayanan
+        )
+
+        layananRef.updateChildren(updateData)
+            .addOnSuccessListener {
+                Toast.makeText(this, "Data Layanan berhasil diperbarui", Toast.LENGTH_SHORT).show()
+                finish()
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "Gagal memperbarui data Layanan", Toast.LENGTH_SHORT).show()
+            }
     }
+
     fun simpan() {
-        if (bSimpan.text.equals(this.getString(R.string.bsimpan))) {
-            val namaLayanan = etNamaLayanan.text.toString()
-            val cabangLayanan = etCabangLayanan.text.toString()
-            val hargaLayanan = etHargaLayanan.text.toString()
+        val layananId = myRef.push().key ?: return
 
-            // Buat ID unik berdasarkan nama dan cabang (atau bisa sesuai kebijakanmu)
-            val layananId = myRef.push().key ?: return
+        val data = ModelLayanan(
+            layananId,
+            etNamaLayanan.text.toString(),
+            etCabangLayanan.text.toString(),
+            etHargaLayanan.text.toString()
+        )
 
-            val data = ModelLayanan(
-                layananId,
-                namaLayanan,
-                cabangLayanan,
-                hargaLayanan
-            )
-
-            // Simpan langsung menggunakan ID unik sebagai key
-            val layananRef = myRef.child(layananId)
-            layananRef.setValue(data)
-                .addOnSuccessListener {
-                    Toast.makeText(
-                        this,
-                        getString(R.string.sukses_simpan_layanan),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    finish()
-                }
-                .addOnFailureListener {
-                    Toast.makeText(
-                        this,
-                        getString(R.string.gagal_simpan_layanan),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-        }
+        myRef.child(layananId).setValue(data)
+            .addOnSuccessListener {
+                Toast.makeText(
+                    this,
+                    getString(R.string.sukses_simpan_layanan),
+                    Toast.LENGTH_SHORT
+                ).show()
+                finish()
+            }
+            .addOnFailureListener {
+                Toast.makeText(
+                    this,
+                    getString(R.string.gagal_simpan_layanan),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
     }
 
     private fun showToast(messageResId: Int) {

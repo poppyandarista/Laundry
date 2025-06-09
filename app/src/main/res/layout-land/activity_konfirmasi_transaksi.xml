@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/topbg_land"
+    tools:context=".transaksi.KonfirmasiTransaksi">
+
+    <!-- Main Container Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvMainContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <!-- Left Section - Customer and Service Info -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:id="@+id/judulKonfirmasiData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/konfirmasidata"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="24sp"
+                    android:textColor="@color/blackwhite"
+                    android:fontFamily="@font/poppins_bold"
+                    android:layout_marginBottom="15dp" />
+
+                <TextView
+                    android:id="@+id/namapelanggan_konfirmasi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/card_pelanggan_nama_pelanggan"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="@color/blackwhite"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:id="@+id/nohp_konfirmasi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/card_pelanggan_nohp"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/poppins"
+                    android:textColor="@color/blackwhite"
+                    android:layout_marginTop="5dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/blackwhite"
+                    android:layout_marginTop="15dp"/>
+
+                <TextView
+                    android:id="@+id/namalayanan_konfirmasi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/namalayanan"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="@color/blackwhite"
+                    android:layout_marginTop="15dp" />
+
+                <TextView
+                    android:id="@+id/harga_konfirmasi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/harga_layanan"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/poppins"
+                    android:textColor="@color/blackwhite"
+                    android:layout_marginTop="5dp" />
+            </LinearLayout>
+
+            <!-- Right Section - Additional Services and Buttons -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="10dp">
+
+                <TextView
+                    android:id="@+id/tv_layanan_tambahan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/layanantambahann"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textColor="@color/blackwhite"
+                    android:layout_marginBottom="10dp" />
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginBottom="10dp">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvKonfirmasiData"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/card_pilih_tambahan" />
+                </androidx.core.widget.NestedScrollView>
+
+                <!-- Total Payment -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="0dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/totalbayar"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textColor="@color/blackwhite" />
+
+                    <TextView
+                        android:id="@+id/tv_totalbayar_konfirmasi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp54.000,00"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textColor="@color/blackwhite" />
+                </LinearLayout>
+
+                <!-- Buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="0dp">
+
+                    <Button
+                        android:id="@+id/bBatal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/batal"
+                        android:backgroundTint="#FEC109"
+                        android:textColor="@color/white"
+                        android:layout_marginEnd="5dp"
+                        android:fontFamily="@font/poppins_bold" />
+
+                    <Button
+                        android:id="@+id/bPembayaran"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/pembayaran"
+                        android:backgroundTint="#28D368"
+                        android:textColor="@color/white"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/poppins_bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

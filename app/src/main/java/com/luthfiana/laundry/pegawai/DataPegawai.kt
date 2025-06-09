@@ -15,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.luthfiana.laundry.R
 import com.luthfiana.laundry.adapter.DataPegawaiAdapter
+import com.luthfiana.laundry.adapter.DataPelangganAdapter
 import com.luthfiana.laundry.modeldata.ModelPegawai
 
 class DataPegawai : AppCompatActivity() {
@@ -56,12 +57,15 @@ class DataPegawai : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
+        pegawaiList = ArrayList()
+        adapter = DataPegawaiAdapter(pegawaiList)
         rvDataPegawai.layoutManager = LinearLayoutManager(this).apply {
-            reverseLayout = true
-            stackFromEnd = true
+            // Remove these if you want normal order (newest at bottom)
+            // reverseLayout = true
+            // stackFromEnd = true
         }
         rvDataPegawai.setHasFixedSize(true)
-        pegawaiList = ArrayList()
+        rvDataPegawai.adapter = adapter
     }
 
     private fun getData() {
@@ -74,11 +78,13 @@ class DataPegawai : AppCompatActivity() {
                         val pegawai = childSnapshot.getValue(ModelPegawai::class.java)
                         pegawai?.let { pegawaiList.add(it) }
                     }
-                    rvDataPegawai.adapter = DataPegawaiAdapter(pegawaiList).also{
-                        it.notifyDataSetChanged()
-                    }
+                    // Reverse the list if you want newest first
+                    pegawaiList.reverse()
+                    adapter.notifyDataSetChanged()
+                    // Scroll to top (position 0 is now the newest item)
+                    rvDataPegawai.scrollToPosition(0)
                 }
-            }
+                }
 
             override fun onCancelled(databaseError: DatabaseError) {
                 Toast.makeText(this@DataPegawai, databaseError.message, Toast.LENGTH_SHORT).show()

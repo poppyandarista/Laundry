@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@drawable/bg_gradient_full"
+    tools:context=".register.RegisterActivity">
+
+    <!-- Bagian kiri: Logo -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvNamaLaundry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="La-Laundry"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:layout_marginBottom="20dp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/img1shadow"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:cardCornerRadius="100dp"
+            app:cardElevation="10dp"
+            app:cardBackgroundColor="@android:color/white">
+
+            <ImageView
+                android:id="@+id/logolaundry"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/logolaundry" />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <!-- Bagian kanan: Form -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:padding="24dp"
+        android:layout_marginTop="-30dp"
+        android:background="@drawable/bg_putih">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvGetStarted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mulaisekarang"
+                android:layout_gravity="center"
+                android:textColor="@color/blackwhite"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="22sp"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:id="@+id/tvGunakanInformasi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gunakaninformasi"
+                android:textColor="@color/blackwhite"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:text="@string/nama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blackwhite"
+                android:fontFamily="@font/poppins"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/etNama"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="@string/nama"
+                android:textColorHint="#bbbbbb"
+                android:textColor="@color/black"
+                android:background="@drawable/border_editor"
+                android:fontFamily="@font/poppins"
+                android:paddingStart="10dp" />
+
+            <!-- No HP -->
+            <TextView
+                android:text="@string/nomortelepon"
+                android:textColor="@color/blackwhite"
+                android:fontFamily="@font/poppins"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" />
+
+            <EditText
+                android:id="@+id/etNohp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="@string/nomortelepon"
+                android:textColorHint="#bbbbbb"
+                android:textColor="@color/black"
+                android:inputType="phone"
+                android:background="@drawable/border_editor"
+                android:fontFamily="@font/poppins"
+                android:paddingStart="10dp" />
+
+            <!-- Kata Sandi -->
+            <TextView
+                android:text="@string/katasandi"
+                android:textColor="@color/blackwhite"
+                android:fontFamily="@font/poppins"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/etKataSandi"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="@string/katasandi"
+                    android:inputType="textPassword"
+                    android:textColorHint="#bbbbbb"
+                    android:textColor="@color/black"
+                    android:background="@drawable/border_editor"
+                    android:fontFamily="@font/poppins"
+                    android:paddingStart="10dp" />
+
+                <ImageView
+                    android:id="@+id/ivTogglePassword"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/eye"
+                    android:contentDescription="Toggle Password" />
+            </RelativeLayout>
+
+            <TextView
+                android:text="@string/tv_cabang"
+                android:textColor="@color/blackwhite"
+                android:fontFamily="@font/poppins"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"/>
+            <EditText
+                android:id="@+id/etCabang"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="@string/tv_cabang"
+                android:textColorHint="#bbbbbb"
+                android:textColor="@color/black"
+                android:background="@drawable/border_editor"
+                android:fontFamily="@font/poppins"
+                android:paddingStart="10dp" />
+
+            <!-- Role -->
+            <TextView
+                android:text="@string/role"
+                android:textColor="@color/blackwhite"
+                android:fontFamily="@font/poppins"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" />
+            <Spinner
+                android:id="@+id/spRole"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/border_editor" />
+
+            <!-- Tombol Daftar -->
+            <Button
+                android:id="@+id/bDaftar"
+                android:layout_width="250dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:text="@string/daftarsekarang"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@color/button"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="16sp"
+                android:layout_marginTop="20dp" />
+
+            <!-- Sudah punya akun -->
+            <TextView
+                android:id="@+id/tvsudahpunyaakun"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sudahmemilikiakun"
+                android:textColor="@color/blackwhite"
+                android:fontFamily="@font/poppins"
+                android:textSize="14sp"
+                android:textAlignment="center"
+                android:layout_marginTop="10dp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

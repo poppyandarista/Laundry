@@ -116,15 +116,15 @@ class transaksi : AppCompatActivity() {
                     startActivity(intent)
                 } catch (e: Exception) {
                     e.printStackTrace()
-                    Toast.makeText(this, "Gagal membuka konfirmasi: ${e.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.toast_errordata), Toast.LENGTH_SHORT).show()
                 }
             } else {
                 if (namaPelanggan.isEmpty()) {
-                    Toast.makeText(this, "Silahkan Pilih Pelanggan Terlebih Dahulu", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.silakanpilihpelanggan), Toast.LENGTH_SHORT).show()
                     startActivityForResult(Intent(this, PilihPelanggan::class.java), pilihPelanggan)
                 }
                 if (namaLayanan.isEmpty()) {
-                    Toast.makeText(this, "Silahkan Pilih Layanan Terlebih Dahulu", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.silakanpilihlayanan), Toast.LENGTH_SHORT).show()
                     startActivityForResult(Intent(this, PilihLayanan::class.java), pilihLayanan)
                 }
             }
@@ -146,13 +146,13 @@ class transaksi : AppCompatActivity() {
                 val nama = data.getStringExtra("namaPelanggan").orEmpty()
                 val nomorHP = data.getStringExtra("nohpPelanggan").orEmpty()
 
-                tvPelangganNama.text = "Nama Pelanggan: $nama"
-                tvPelangganNoHP.text = "No HP: $nomorHP"
+                tvPelangganNama.text = getString(R.string.card_namapelanggan, nama)
+                tvPelangganNoHP.text = getString(R.string.card_nohp, nomorHP)
 
                 namaPelanggan = nama
                 nohpPelanggan = nomorHP
             } else if (resultCode == RESULT_CANCELED) {
-                Toast.makeText(this, "Batal memilih pelanggan", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.batalpilihpelanggan), Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -162,13 +162,13 @@ class transaksi : AppCompatActivity() {
                 val nama = data.getStringExtra("namaLayanan").orEmpty()
                 val harga = data.getStringExtra("hargaLayanan").orEmpty()
 
-                tvnamaLayanan.text = "Nama Layanan: $nama"
-                tvhargaLayanan.text = "Harga: $harga"
+                tvnamaLayanan.text = getString(R.string.card_namalayanan, nama)
+                tvhargaLayanan.text = getString(R.string.card_hargaa, harga)
 
                 namaLayanan = nama
                 hargaLayanan = harga
             } else if (resultCode == RESULT_CANCELED) {
-                Toast.makeText(this, "Batal memilih layanan", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.batalpilihlayanan), Toast.LENGTH_SHORT).show()
             }
         }
 
