@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -31,8 +32,72 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var tvSudahPunyaAkun: TextView
     private lateinit var spRole: Spinner
 
+    // Admin password configuration
+    private val ADMIN_PASSWORD = "dzyz4386" // Change this to your actual admin password
+    private var passwordAttempts = 0
+    private val MAX_ATTEMPTS = 3
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Show admin password dialog first
+        showAdminPasswordDialog()
+    }
+
+    private fun showAdminPasswordDialog() {
+        val dialogView = layoutInflater.inflate(R.layout.admin_password_dialog, null)
+        val etPassword = dialogView.findViewById<EditText>(R.id.etAdminPassword)
+        val ivToggle = dialogView.findViewById<ImageView>(R.id.ivToggleAdminPassword)
+        val btnConfirm = dialogView.findViewById<Button>(R.id.btnConfirm)
+        val btnCancel = dialogView.findViewById<Button>(R.id.btnCancel)
+
+        val dialog = AlertDialog.Builder(this)
+            .setView(dialogView)
+            .setCancelable(false)
+            .create()
+
+        // Add password toggle functionality
+        var isPasswordVisible = false
+        ivToggle.setOnClickListener {
+            isPasswordVisible = !isPasswordVisible
+            if (isPasswordVisible) {
+                etPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+                ivToggle.setImageResource(R.drawable.view) // ikon mata terbuka
+            } else {
+                etPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                ivToggle.setImageResource(R.drawable.eye) // ikon mata tertutup
+            }
+            etPassword.setSelection(etPassword.text.length)
+        }
+
+        btnConfirm.setOnClickListener {
+            val enteredPassword = etPassword.text.toString()
+
+            if (enteredPassword == ADMIN_PASSWORD) {
+                // Password correct, proceed to registration page
+                passwordAttempts = 0
+                dialog.dismiss()
+                initializeRegistrationPage()
+            } else {
+                passwordAttempts++
+                if (passwordAttempts >= MAX_ATTEMPTS) {
+                    // Too many failed attempts, close app
+                    Toast.makeText(this, "Terlalu banyak percobaan gagal. Aplikasi akan ditutup.", Toast.LENGTH_SHORT).show()
+                    finishAffinity()
+                } else {
+                    Toast.makeText(this, "Password salah. Percobaan ${MAX_ATTEMPTS - passwordAttempts} lagi.", Toast.LENGTH_SHORT).show()
+                    etPassword.text.clear()
+                }
+            }
+        }
+
+        btnCancel.setOnClickListener {
+            finish()
+        }
+
+        dialog.show()
+    }
+    private fun initializeRegistrationPage() {
         setContentView(R.layout.activity_register)
 
         // Initialize views

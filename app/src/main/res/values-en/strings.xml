@@ -187,4 +187,5 @@
     <string name="silakanpilihlayanan">Please select customer</string>
     <string name="batalpilihpelanggan">Cancel select costumer</string>
     <string name="batalpilihlayanan">Cancel select service</string>
+    <string name="masukkanpassword">Enter Password</string>
 </resources>
